@@ -768,6 +768,7 @@ const cards=Array.from(document.querySelectorAll('.link-card'));
 const navItems=Array.from(document.querySelectorAll('.people-nav-item'));
 const sortTime=document.getElementById('sort-time'),sortSim=document.getElementById('sort-sim');
 let currentSort='time';
+let currentSender='all';
 
 function similarity(a,b){
   const ta=new Set((a.dataset.topic||'').toLowerCase().split(/[\s\-_.:：|/]+/).filter(x=>x.length>=2));
@@ -803,7 +804,8 @@ function apply(){
     const text=(card.innerText||'').toLowerCase();
     const okKw=!kw||text.includes(kw);
     const okCat=!c||card.dataset.cat===c;
-    const show=okKw&&okCat;
+    const okSender=currentSender==='all'||card.dataset.sender===currentSender;
+    const show=okKw&&okCat&&okSender;
     card.style.display=show?'':'none';
     if(show)visible++;
   });
@@ -835,14 +837,10 @@ q.addEventListener('input',()=>{apply();reorder();});
 catSel.addEventListener('change',()=>{apply();reorder();});
 sortTime.addEventListener('click',()=>setSort('time'));
 sortSim.addEventListener('click',()=>setSort('sim'));
-document.getElementById('reset').addEventListener('click',()=>{q.value='';catSel.value='';navItems.forEach(n=>n.classList.toggle('active',n.dataset.target==='all'));apply();setSort('time');});
+document.getElementById('reset').addEventListener('click',()=>{q.value='';catSel.value='';currentSender='all';navItems.forEach(n=>n.classList.toggle('active',n.dataset.target==='all'));apply();setSort('time');});
 navItems.forEach(item=>item.addEventListener('click',()=>{
-  const target=item.dataset.target;
+  currentSender=item.dataset.target;
   navItems.forEach(n=>n.classList.toggle('active',n===item));
-  cards.forEach(card=>{
-    const show=target==='all'||card.dataset.sender===target;
-    card.style.display=show?'':'none';
-  });
   apply();reorder();
   document.querySelector('.toolbar').scrollIntoView({behavior:'smooth',block:'start'});
 }));
