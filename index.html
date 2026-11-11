@@ -3,179 +3,902 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICT AI践行者 · 链接汇总</title>
+<title>📎 ICT AI践行者 · 链接汇总</title>
 <style>
-  :root {
-    --bg:#0f1220; --panel:#171b2e; --panel2:#1e2338; --line:#2a3050;
-    --txt:#e8ebf5; --sub:#9aa3c0; --accent:#5b8cff; --accent2:#28d4a0;
-  }
-  * { box-sizing:border-box; }
-  body {
-    margin:0; background:linear-gradient(180deg,#0c0f1c,#12162a 40%,#0f1220);
-    color:var(--txt); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-    min-height:100vh;
-  }
-  .wrap { max-width:1180px; margin:0 auto; padding:32px 20px 80px; }
-  header h1 { font-size:26px; margin:0 0 8px; letter-spacing:.5px; }
-  header .meta { color:var(--sub); font-size:13px; line-height:1.8; }
-  .stats { display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 18px; }
-  .stat-card {
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:12px 16px; display:flex; flex-direction:column; gap:4px; min-width:130px;
-  }
-  .stat-name { font-size:12px; color:var(--sub); }
-  .stat-num { font-size:22px; font-weight:700; }
-  .cat-doc .stat-num { color:#5b8cff; }
-  .cat-tool .stat-num { color:#28d4a0; }
-  .cat-other .stat-num { color:#ffb454; }
-  .toolbar {
-    position:sticky; top:0; z-index:20; background:rgba(15,18,32,.92);
-    backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
-    padding:14px 0; margin-bottom:18px;
-  }
-  .search-row { display:flex; gap:10px; flex-wrap:wrap; }
-  #q {
-    flex:1; min-width:220px; background:var(--panel2); border:1px solid var(--line);
-    color:var(--txt); border-radius:10px; padding:11px 14px; font-size:14px; outline:none;
-  }
-  #q:focus { border-color:var(--accent); }
-  select {
-    background:var(--panel2); border:1px solid var(--line); color:var(--txt);
-    border-radius:10px; padding:11px 12px; font-size:13px; outline:none;
-  }
-  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-  .chip {
-    background:var(--panel2); border:1px solid var(--line); color:var(--sub);
-    border-radius:999px; padding:6px 13px; font-size:12.5px; cursor:pointer; transition:.15s;
-  }
-  .chip:hover { border-color:var(--accent); color:var(--txt); }
-  .chip.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-  .chip em { font-style:normal; opacity:.7; margin-left:4px; }
-  .count-line { color:var(--sub); font-size:12.5px; margin:6px 0 14px; }
-  .card {
-    background:var(--panel); border:1px solid var(--line); border-radius:14px;
-    padding:16px 18px; margin-bottom:12px; transition:.18s;
-  }
-  .card:hover { border-color:#3b4680; transform:translateY(-1px); }
-  .card-top { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; }
-  .card h3 { margin:0 0 8px; font-size:15.5px; line-height:1.5; font-weight:600; }
-  .card h3 a { color:var(--txt); text-decoration:none; }
-  .card h3 a:hover { color:var(--accent); }
-  .sub { color:var(--sub); font-size:13px; line-height:1.7; margin:0 0 10px;
-          display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .url { color:#6f7bb0; font-size:12px; word-break:break-all; }
-  .url a { color:#6f7bb0; text-decoration:none; }
-  .url a:hover { color:var(--accent); }
-  .foot { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:12px;
-           font-size:12px; color:var(--sub); }
-  .badge { border-radius:999px; padding:3px 10px; font-size:11.5px; border:1px solid transparent; }
-  .cat-doc.badge { background:rgba(91,140,255,.14); color:#8fb0ff; border-color:rgba(91,140,255,.35); }
-  .cat-tool.badge { background:rgba(40,212,160,.14); color:#5fe3bd; border-color:rgba(40,212,160,.35); }
-  .cat-other.badge { background:rgba(255,180,84,.14); color:#ffc978; border-color:rgba(255,180,84,.35); }
-  .warn { color:#ff9a6b; }
-  .sender-tag { color:#c3cbe8; }
-  .empty { text-align:center; color:var(--sub); padding:60px 0; font-size:14px; }
-  footer { text-align:center; color:#5a6288; font-size:12px; margin-top:40px; }
+:root { --bg:#f5f7fb; --card:#fff; --line:#e6eaf2; --txt:#1f2937; --sub:#6b7280; --brand:#2f6bff; --brand-soft:#eaf1ff; --shadow:0 2px 10px rgba(24,45,90,.06); }
+* { box-sizing:border-box; }
+body { margin:0; padding-left:244px; background:var(--bg); color:var(--txt); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 18px 60px; }
+.people-nav { position:fixed; left:18px; top:28px; bottom:28px; width:204px; z-index:10; background:rgba(255,255,255,.94); border:1px solid var(--line); border-radius:16px; padding:16px 12px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.people-nav-title { display:flex; align-items:center; gap:8px; padding:4px 8px 14px; border-bottom:1px solid var(--line); color:var(--txt); font-size:14px; font-weight:700; }
+.people-nav-title::before { content:'👥'; font-size:16px; }
+.people-nav-list { overflow:auto; display:flex; flex-direction:column; gap:4px; padding-top:10px; }
+.people-nav-item { display:flex; align-items:center; gap:8px; width:100%; border:0; border-radius:9px; padding:9px 8px; background:transparent; color:var(--sub); cursor:pointer; text-align:left; font:inherit; font-size:13px; transition:.18s; }
+.people-nav-item:hover { color:var(--brand); background:var(--brand-soft); }
+.people-nav-item.active { color:var(--brand); background:var(--brand-soft); font-weight:600; }
+.people-nav-avatar { flex:none; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--brand); color:#fff; font-size:12px; }
+.people-nav-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.people-nav-count { margin-left:auto; color:#9aa3b2; font-size:11px; }
+header { background:linear-gradient(135deg,#2f6bff,#5b8cff); color:#fff; border-radius:16px; padding:26px 28px; box-shadow:var(--shadow); }
+header h1 { margin:0 0 8px; font-size:24px; } header p { margin:4px 0; font-size:13px; opacity:.92; }
+.stats { display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 6px; } .stat { background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.28); border-radius:10px; padding:8px 14px; font-size:13px; } .stat b { font-size:18px; margin-left:4px; }
+.toolbar { position:sticky; top:0; z-index:9; background:var(--bg); padding:14px 0 12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.toolbar input,.toolbar select { padding:9px 12px; border:1px solid var(--line); border-radius:10px; font-size:14px; background:#fff; color:var(--txt); outline:none; } .toolbar input { flex:1; min-width:200px; } .toolbar input:focus,.toolbar select:focus { border-color:var(--brand); box-shadow:0 0 0 3px var(--brand-soft); } .reset { padding:9px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-size:14px; } .reset:hover { border-color:var(--brand); color:var(--brand); }
+.sort-group { display:flex; gap:6px; align-items:center; } .sort-btn { padding:9px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-size:14px; color:var(--sub); } .sort-btn.active { border-color:var(--brand); color:var(--brand); background:var(--brand-soft); font-weight:600; }
+.link-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:12px; } .link-card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); transition:.18s; } .link-card:hover { transform:translateY(-2px); border-color:#c9d8ff; } .link-head { display:flex; gap:8px; align-items:flex-start; } .idx { flex:none; width:20px; height:20px; border-radius:6px; background:var(--brand-soft); color:var(--brand); font-size:12px; display:inline-flex; align-items:center; justify-content:center; } .topic { font-size:15px; font-weight:600; color:var(--txt); text-decoration:none; line-height:1.45; } .topic:hover { color:var(--brand); } .sub { margin:8px 0 0; font-size:13px; color:var(--sub); line-height:1.6; } .meta { display:flex; gap:8px; align-items:center; margin-top:10px; flex-wrap:wrap; } .tag { font-size:12px; background:var(--brand-soft); color:var(--brand); border-radius:6px; padding:2px 8px; } .sender { font-size:12px; color:var(--sub); } .time { font-size:12px; color:var(--sub); } .url { display:block; margin-top:8px; font-size:12px; color:#8a94a6; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .url:hover { color:var(--brand); }
+.empty { text-align:center; color:var(--sub); padding:50px 0; display:none; } footer { margin-top:34px; text-align:center; font-size:12px; color:var(--sub); }
+@media(max-width:900px){body{padding-left:0}.people-nav{position:sticky; left:auto; top:0; bottom:auto; width:auto; margin:0 0 12px; padding:10px; border-radius:12px}.people-nav-title{padding:2px 6px 8px}.people-nav-list{flex-direction:row; overflow-x:auto; padding-top:8px; gap:6px}.people-nav-item{flex:none; width:auto; padding:7px 9px}.people-nav-count{display:none}}
+@media(max-width:700px){.link-list{grid-template-columns:1fr}.toolbar input{min-width:100%}header h1{font-size:21px}}
 </style>
 </head>
 <body>
+<nav class="people-nav" aria-label="按发布人导航"><div class="people-nav-title">发布人导航</div><div class="people-nav-list"><button class="people-nav-item active" type="button" data-target="all"><span class="people-nav-avatar">全</span><span class="people-nav-name">全部发布人</span><span class="people-nav-count">127</span></button>
+<button class="people-nav-item" type="button" data-target="李寅Erick"><span class="people-nav-avatar">李</span><span class="people-nav-name">李寅Erick</span><span class="people-nav-count">49</span></button>
+<button class="people-nav-item" type="button" data-target="李杰lijie"><span class="people-nav-avatar">李</span><span class="people-nav-name">李杰lijie</span><span class="people-nav-count">44</span></button>
+<button class="people-nav-item" type="button" data-target="陈伟ChenWei"><span class="people-nav-avatar">陈</span><span class="people-nav-name">陈伟ChenWei</span><span class="people-nav-count">14</span></button>
+<button class="people-nav-item" type="button" data-target="袁季骜Jeff"><span class="people-nav-avatar">袁</span><span class="people-nav-name">袁季骜Jeff</span><span class="people-nav-count">12</span></button>
+<button class="people-nav-item" type="button" data-target="吉勇安"><span class="people-nav-avatar">吉</span><span class="people-nav-name">吉勇安</span><span class="people-nav-count">7</span></button>
+<button class="people-nav-item" type="button" data-target="王梓轩Luca"><span class="people-nav-avatar">王</span><span class="people-nav-name">王梓轩Luca</span><span class="people-nav-count">1</span></button></div></nav>
 <div class="wrap">
-  <header>
-    <h1>📎 ICT AI践行者 · 链接汇总</h1>
-    <div class="meta">
-      自动采集群内分享的网页链接 · 已过滤会议链接 · 共 <b>43</b> 条有效链接<br>
-      数据范围：2026-09-22 ~ 2026-11-11 · 生成时间：2026-11-11 00:51:13
-    </div>
-  </header>
-
-  <div class="stats"><div class="stat-card cat-doc"><span class="stat-name">📊 协作文档</span><span class="stat-num">13</span></div><div class="stat-card cat-tool"><span class="stat-name">🔧 内部工具</span><span class="stat-num">2</span></div><div class="stat-card cat-other"><span class="stat-name">🔗 其他链接</span><span class="stat-num">28</span></div></div>
-
-  <div class="toolbar">
-    <div class="search-row">
-      <input id="q" type="search" placeholder="🔍 搜索标题 / 副标题 / 链接 / 发布人…">
-      <select id="sort">
-        <option value="time-desc">时间：最新在前</option>
-        <option value="time-asc">时间：最早在前</option>
-        <option value="sender">按发布人分组</option>
-      </select>
-    </div>
-    <div class="chips" id="chips">
-      <button class="chip active" data-sender="">全部 <em>43</em></button>
-      <button class="chip" data-sender="李寅Erick">李寅Erick <em>20</em></button><button class="chip" data-sender="李杰lijie">李杰lijie <em>16</em></button><button class="chip" data-sender="陈伟ChenWei">陈伟ChenWei <em>3</em></button><button class="chip" data-sender="袁季骜Jeff">袁季骜Jeff <em>3</em></button><button class="chip" data-sender="王梓轩Luca">王梓轩Luca <em>1</em></button>
-    </div>
+<header><h1>📎 ICT AI践行者 · 链接汇总</h1><p>自动采集群内分享的网页链接 · 已过滤会议链接 · 生成时间：2026-11-11 01:01:14</p><div class="stats"><div class="stat">共 <b>127</b> 条有效链接</div><div class="stat">6 位发布人</div><div class="stat">📊 协作文档 <b>69</b></div><div class="stat">🔗 其他链接 <b>47</b></div><div class="stat">🔧 内部工具 <b>7</b></div><div class="stat">📝 微信文章 <b>3</b></div><div class="stat">🎙 音视频 <b>1</b></div></div></header>
+<div class="toolbar">
+  <input id="q" type="search" placeholder="🔎 输入关键词模糊搜索主题 / 副标题 / 链接 / 发布人…">
+  <select id="cat"><option value="">全部分类</option><option value="📊 协作文档">📊 协作文档（69）</option><option value="🔗 其他链接">🔗 其他链接（47）</option><option value="🔧 内部工具">🔧 内部工具（7）</option><option value="📝 微信文章">📝 微信文章（3）</option><option value="🎙 音视频">🎙 音视频（1）</option></select>
+  <div class="sort-group">
+    <button class="sort-btn active" id="sort-time" type="button">时间倒序</button>
+    <button class="sort-btn" id="sort-sim" type="button">主题相似</button>
   </div>
-
-  <div class="count-line" id="countLine"></div>
-  <div id="list"></div>
-  <footer>由 im-link-collector 自动生成 · 数据来源：企信群「ICT AI践行者」</footer>
+  <button class="reset" id="reset">重置</button>
 </div>
-
+<main id="list"><div class="link-list"><article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794356811854" data-topic="2026.11.11　星期三　·　第 22 期 9 条精选  ·  4 个板块  ·  最高 8 分 ────────────── 本期头条 AgentC...">
+  <div class="link-head"><span class="idx">1</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/11/summary-zh.html" target="_blank" rel="noopener">2026.11.11　星期三　·　第 22 期 9 条精选  ·  4 个板块  ·  最高 8 分 ────────────── 本期头条 AgentC...</a></div>
+  <p class="sub">2026.11.11 星期三 · 第 22 期 9 条精选 · 4 个板块 · 最高 8 分 ────────────── 本期头条 AgentCore 依赖监控方案 AWS 宣布 Amazon Bedrock AgentCore Web Search API 已可用，并展示如何结合 LangGraph 构建每日依赖…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-11 00:26</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/11/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/11/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794270363497" data-topic="2026.11.10　星期二　·　第 21 期 5 条精选  ·  3 个板块  ·  最高 8 分 ────────────── 本期头条 Kuken ...">
+  <div class="link-head"><span class="idx">2</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/10/summary-zh.html" target="_blank" rel="noopener">2026.11.10　星期二　·　第 21 期 5 条精选  ·  3 个板块  ·  最高 8 分 ────────────── 本期头条 Kuken ...</a></div>
+  <p class="sub">2026.11.10 星期二 · 第 21 期 5 条精选 · 3 个板块 · 最高 8 分 ────────────── 本期头条 Kuken 用 AI 检索 70 年图纸 Kuken Industries 通过 OpenAI API 构建冷却塔工程图纸检索能力，覆盖其 70 年的历史图纸资料。 OpenAI 披露…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-10 00:26</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/10/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/10/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794183822062" data-topic="2026.11.09　星期一　·　第 20 期 1 条精选  ·  1 个板块  ·  最高 7 分 ────────────── 本期头条 Agents...">
+  <div class="link-head"><span class="idx">3</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/09/summary-zh.html" target="_blank" rel="noopener">2026.11.09　星期一　·　第 20 期 1 条精选  ·  1 个板块  ·  最高 7 分 ────────────── 本期头条 Agents...</a></div>
+  <p class="sub">2026.11.09 星期一 · 第 20 期 1 条精选 · 1 个板块 · 最高 7 分 ────────────── 本期头条 Agents SDK alpha.7 更新 OpenAI 发布 Agents SDK v0.24.0-alpha.7 预发布版本，新增由应用自有存储承载的持久化根会话，提供 Sessi…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-09 00:23</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/09/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/09/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794096618007" data-topic="2026.11.08　星期日　·　第 19 期 1 条精选  ·  1 个板块  ·  最高 7 分 ────────────── 本期头条 重新思考工具...">
+  <div class="link-head"><span class="idx">4</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/08/summary-zh.html" target="_blank" rel="noopener">2026.11.08　星期日　·　第 19 期 1 条精选  ·  1 个板块  ·  最高 7 分 ────────────── 本期头条 重新思考工具...</a></div>
+  <p class="sub">2026.11.08 星期日 · 第 19 期 1 条精选 · 1 个板块 · 最高 7 分 ────────────── 本期头条 重新思考工具调用训练数据 机器之心文章围绕 Tool-Calling Agent 的训练数据合成展开，讨论将训练流程从预先设计任务的“先出题”转向智能体自主探索的“先探索”。 这类智能…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-08 00:10</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/08/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/08/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794040543868" data-topic="作者 自己提供了免费的线上版本，不涉及版权问题哈。鼓励大家多阅读和探讨。">
+  <div class="link-head"><span class="idx">5</span><a class="topic" href="https://fde4.ai/book/" target="_blank" rel="noopener">作者 自己提供了免费的线上版本，不涉及版权问题哈。鼓励大家多阅读和探讨。</a></div>
+  <p class="sub">作者 自己提供了免费的线上版本，不涉及版权问题哈。鼓励大家多阅读和探讨</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-07 08:35</span></div>
+  <a class="url" href="https://fde4.ai/book/" target="_blank" rel="noopener">https://fde4.ai/book/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1794010576737" data-topic="2026.11.07　星期六　·　第 18 期 12 条精选  ·  6 个板块  ·  最高 8 分 ────────────── 本期头条 AWS 与...">
+  <div class="link-head"><span class="idx">6</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/07/summary-zh.html" target="_blank" rel="noopener">2026.11.07　星期六　·　第 18 期 12 条精选  ·  6 个板块  ·  最高 8 分 ────────────── 本期头条 AWS 与...</a></div>
+  <p class="sub">2026.11.07 星期六 · 第 18 期 12 条精选 · 6 个板块 · 最高 8 分 ────────────── 本期头条 AWS 与 Okta 治理智能体访问 AWS 在《Part 1》博客中介绍了 Okta Cross App Access（XAA）与 Amazon Bedrock AgentCore…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-07 00:16</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/07/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/07/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1793932431020" data-topic="magpie下载：">
+  <div class="link-head"><span class="idx">7</span><a class="topic" href="https://usemagpie.ai/docs/zh/start" target="_blank" rel="noopener">magpie下载：</a></div>
+  <p class="sub">magpie下载</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-11-06 02:33</span></div>
+  <a class="url" href="https://usemagpie.ai/docs/zh/start" target="_blank" rel="noopener">https://usemagpie.ai/docs/zh/start</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793924244874" data-topic="2026.11.06　星期五　·　第 17 期 12 条精选  ·  6 个板块  ·  最高 8 分 ────────────── 本期头条 OpenS...">
+  <div class="link-head"><span class="idx">8</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/06/summary-zh.html" target="_blank" rel="noopener">2026.11.06　星期五　·　第 17 期 12 条精选  ·  6 个板块  ·  最高 8 分 ────────────── 本期头条 OpenS...</a></div>
+  <p class="sub">2026.11.06 星期五 · 第 17 期 12 条精选 · 6 个板块 · 最高 8 分 ────────────── 本期头条 OpenSharing 扩展共享边界 Databricks 称，Delta Sharing 已演进为 Linux Foundation 旗下的厂商中立开放协议 OpenSharing…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-06 00:17</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/06/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/06/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1793882795884" data-topic="标讯工作台三页_校对美化版">
+  <div class="link-head"><span class="idx">9</span><a class="topic" href="https://www.workbuddy.cn/space/d/0PHu5ratq5kQz9mPisB3Ca?shareId=8404978f-c7b7-434a-bd31-3e771d935fd0&amp;ext2=copy_link" target="_blank" rel="noopener">标讯工作台三页_校对美化版</a></div>
+  <p class="sub">【WorkBuddy】标讯工作台三页_校对美化版</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-11-05 12:46</span></div>
+  <a class="url" href="https://www.workbuddy.cn/space/d/0PHu5ratq5kQz9mPisB3Ca?shareId=8404978f-c7b7-434a-bd31-3e771d935fd0&amp;ext2=copy_link" target="_blank" rel="noopener">https://www.workbuddy.cn/space/d/0PHu5ratq5kQz9mPisB3Ca?shareId=8404978f-c7b7-434a-bd31-3e771d935fd0&amp;ext2=copy_link</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793837782867" data-topic="。结合本条仅披露的交易标题，Copado 拟将这类生产环境安全可见性纳入其 AI 治理方向，但收购条款、整合方式和具体上线能力仍无法从现有材料确认。 编辑...">
+  <div class="link-head"><span class="idx">10</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/05/summary-zh.html" target="_blank" rel="noopener">。结合本条仅披露的交易标题，Copado 拟将这类生产环境安全可见性纳入其 AI 治理方向，但收购条款、整合方式和具体上线能力仍无法从现有材料确认。 编辑...</a></div>
+  <p class="sub">2026.11.05 星期四 · 第 16 期 12 条精选 · 6 个板块 · 最高 8 分 ────────────── 本期头条 Agentforce Coworker 扩展能力 Salesforce 宣布扩展 Agentforce Coworker，称其使用量在三个月内增长 21 倍，用户已超过 18.5 万…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-05 00:16</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/05/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/05/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793751549370" data-topic="2026.11.04　星期三　·　第 15 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Slack...">
+  <div class="link-head"><span class="idx">11</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/04/summary-zh.html" target="_blank" rel="noopener">2026.11.04　星期三　·　第 15 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Slack...</a></div>
+  <p class="sub">2026.11.04 星期三 · 第 15 期 12 条精选 · 5 个板块 · 最高 8 分 ────────────── 本期头条 Slack 披露智能体调用规模 Salesforce 披露，智能体可通过 MCP 等开放标准，利用 Slack 中涉及 GitHub、Salesforce、Jira 等平台的业务上下…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-04 00:19</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/04/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/04/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1793672633817" data-topic="标讯AI产品解决方案V2.0">
+  <div class="link-head"><span class="idx">12</span><a class="topic" href="https://365.kdocs.cn/l/ctW5pQfCJ3Sd" target="_blank" rel="noopener">标讯AI产品解决方案V2.0</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 标讯AI产品解决方案V2.0</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-11-03 02:23</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ctW5pQfCJ3Sd" target="_blank" rel="noopener">https://365.kdocs.cn/l/ctW5pQfCJ3Sd</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793669645004" data-topic="2026.11.03　星期二　·　第 14 期 12 条精选  ·  5 个板块  ·  最高 9 分 ────────────── 本期头条 Sales...">
+  <div class="link-head"><span class="idx">13</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/03/summary-zh.html" target="_blank" rel="noopener">2026.11.03　星期二　·　第 14 期 12 条精选  ·  5 个板块  ·  最高 9 分 ────────────── 本期头条 Sales...</a></div>
+  <p class="sub">2026.11.03 星期二 · 第 14 期 12 条精选 · 5 个板块 · 最高 9 分 ────────────── 本期头条 Salesforce 拟收购 Cresta Salesforce 已与 Cresta 签署最终收购协议，拟将其语音智能体、实时人工坐席辅导、全量交互分析，以及语音智能体与人工坐席共用…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-03 01:34</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/03/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/03/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1793622538586" data-topic="ICT行业AI工作双周汇报1102">
+  <div class="link-head"><span class="idx">14</span><a class="topic" href="https://365.kdocs.cn/l/ce3PIFoKYtIW" target="_blank" rel="noopener">ICT行业AI工作双周汇报1102</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI工作双周汇报1102</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-11-02 12:28</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ce3PIFoKYtIW" target="_blank" rel="noopener">https://365.kdocs.cn/l/ce3PIFoKYtIW</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1793606769545" data-topic="在杰哥，我一会下去">
+  <div class="link-head"><span class="idx">15</span><a class="topic" href="http://10.113.190.21:8787/" target="_blank" rel="noopener">在杰哥，我一会下去</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-11-02 08:06</span></div>
+  <a class="url" href="http://10.113.190.21:8787/" target="_blank" rel="noopener">http://10.113.190.21:8787/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793491792393" data-topic="2026.11.01　星期日　·　第 12 期 9 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 谷歌发布 T...">
+  <div class="link-head"><span class="idx">16</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/11/01/summary-zh.html" target="_blank" rel="noopener">2026.11.01　星期日　·　第 12 期 9 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 谷歌发布 T...</a></div>
+  <p class="sub">2026.11.01 星期日 · 第 12 期 9 条精选 · 5 个板块 · 最高 8 分 ────────────── 本期头条 谷歌发布 T2J-Bench 谷歌团队发布 T2J-Bench，以 63 个整仓任务评估 Coding Agent 将 PyTorch 项目迁移至 JAX 后，训练与推理行为能否保持一…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-11-01 00:09</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/11/01/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/11/01/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793407504220" data-topic="2026.10.31　星期六　·　第 11 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Agent...">
+  <div class="link-head"><span class="idx">17</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/10/31/summary-zh.html" target="_blank" rel="noopener">2026.10.31　星期六　·　第 11 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Agent...</a></div>
+  <p class="sub">2026.10.31 星期六 · 第 11 期 12 条精选 · 5 个板块 · 最高 8 分 ────────────── 本期头条 Agent Compute Engine 亮相 Google Cloud 在 10 月 AI 基础设施更新中发布面向自主智能体的 Agent Compute Engine，采用硬件隔…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-10-31 00:45</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/10/31/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/10/31/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793346535326" data-topic="2026.10.30　星期五　·　第 10 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Epsil...">
+  <div class="link-head"><span class="idx">18</span><a class="topic" href="https://touchstoness.github.io/horizon-daily/2026/10/30/summary-zh.html" target="_blank" rel="noopener">2026.10.30　星期五　·　第 10 期 12 条精选  ·  5 个板块  ·  最高 8 分 ────────────── 本期头条 Epsil...</a></div>
+  <p class="sub">2026.10.30 星期五 · 第 10 期 12 条精选 · 5 个板块 · 最高 8 分 ────────────── 本期头条 Epsilon 用 Nova Act 扩展 UI 测试 AWS 披露，Epsilon 已将 Amazon Nova Act 与 Amazon Bedrock AgentCore Br…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-10-30 07:48</span></div>
+  <a class="url" href="https://touchstoness.github.io/horizon-daily/2026/10/30/summary-zh.html" target="_blank" rel="noopener">https://touchstoness.github.io/horizon-daily/2026/10/30/summary-zh.html</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="陈伟ChenWei" data-time="1793255344670" data-topic="【好课推荐】《【2026】销售云 AI 产品宣讲及演示》">
+  <div class="link-head"><span class="idx">19</span><a class="topic" href="https://www.fxiaoke.com/fsh5/partner-train/release/index.html?embed=0&amp;external=1&amp;_callNative=1&amp;fromapp=1&amp;courseID=180483" target="_blank" rel="noopener">【好课推荐】《【2026】销售云 AI 产品宣讲及演示》</a></div>
+  
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">陈伟ChenWei</span><span class="time">2026-10-29 06:29</span></div>
+  <a class="url" href="https://www.fxiaoke.com/fsh5/partner-train/release/index.html?embed=0&amp;external=1&amp;_callNative=1&amp;fromapp=1&amp;courseID=180483" target="_blank" rel="noopener">https://www.fxiaoke.com/fsh5/partner-train/release/index.html?embed=0&amp;external=1&amp;_callNative=1&amp;fromapp=1&amp;courseID=180483</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1793180562140" data-topic="在workbuddy通过企查查MCP接口获取的【企查查】公司的咨询报告生成了HTML报告">
+  <div class="link-head"><span class="idx">20</span><a class="topic" href="https://workbuddy.link/p/VC5uckh4sjoR9504pYHtXl?source=2" target="_blank" rel="noopener">在workbuddy通过企查查MCP接口获取的【企查查】公司的咨询报告生成了HTML报告</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-28 09:42</span></div>
+  <a class="url" href="https://workbuddy.link/p/VC5uckh4sjoR9504pYHtXl?source=2" target="_blank" rel="noopener">https://workbuddy.link/p/VC5uckh4sjoR9504pYHtXl?source=2</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1793160234507" data-topic="行业本体建设沟通会">
+  <div class="link-head"><span class="idx">21</span><a class="topic" href="https://365.kdocs.cn/l/cq8K7q6vxz9M" target="_blank" rel="noopener">行业本体建设沟通会</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 行业本体建设沟通会</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-10-28 04:03</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cq8K7q6vxz9M" target="_blank" rel="noopener">https://365.kdocs.cn/l/cq8K7q6vxz9M</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="袁季骜Jeff" data-time="1793100900142" data-topic="目前已经有7个工作台，其中复杂的是4个，已经都做了大量的版本迭代，以及后面要做协同开发，代码库管理的问题会更凸显">
+  <div class="link-head"><span class="idx">22</span><a class="topic" href="https://www.fxiaoke.com/XV/UI/Home?noheader=1&amp;notopnav=0#objdetail/ProcurementInfoObj/6ad1d6fc555a8d000841b1ce" target="_blank" rel="noopener">目前已经有7个工作台，其中复杂的是4个，已经都做了大量的版本迭代，以及后面要做协同开发，代码库管理的问题会更凸显</a></div>
+  
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">袁季骜Jeff</span><span class="time">2026-10-27 11:35</span></div>
+  <a class="url" href="https://www.fxiaoke.com/XV/UI/Home?noheader=1&amp;notopnav=0#objdetail/ProcurementInfoObj/6ad1d6fc555a8d000841b1ce" target="_blank" rel="noopener">https://www.fxiaoke.com/XV/UI/Home?noheader=1&amp;notopnav=0#objdetail/ProcurementInfoObj/6ad1d6fc555a8d000841b1ce</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1793073676997" data-topic="保障标讯数据的唯一性">
+  <div class="link-head"><span class="idx">23</span><a class="topic" href="https://github.com/yetone/magpie/blob/main/README.zh-CN.md" target="_blank" rel="noopener">保障标讯数据的唯一性</a></div>
+  <p class="sub">他们自己做了一个标讯平台，集成了千里马，剑鱼，知了的数据</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-10-27 04:01</span></div>
+  <a class="url" href="https://github.com/yetone/magpie/blob/main/README.zh-CN.md" target="_blank" rel="noopener">https://github.com/yetone/magpie/blob/main/README.zh-CN.md</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1793066453068" data-topic="标讯情报洞察">
+  <div class="link-head"><span class="idx">24</span><a class="topic" href="https://365.kdocs.cn/l/cftk3N0AFGnP" target="_blank" rel="noopener">标讯情报洞察</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 标讯情报洞察</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-10-27 02:00</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cftk3N0AFGnP" target="_blank" rel="noopener">https://365.kdocs.cn/l/cftk3N0AFGnP</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="陈伟ChenWei" data-time="1792584334701" data-topic="收到 非常感谢">
+  <div class="link-head"><span class="idx">25</span><a class="topic" href="https://aihub.firstshare.cn/" target="_blank" rel="noopener">收到 非常感谢</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">陈伟ChenWei</span><span class="time">2026-10-21 12:05</span></div>
+  <a class="url" href="https://aihub.firstshare.cn/" target="_blank" rel="noopener">https://aihub.firstshare.cn/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1792550334339" data-topic="标讯洞察Skill新版式样张-能力一-阶段化洞察-中车贵阳快速接头采购">
+  <div class="link-head"><span class="idx">26</span><a class="topic" href="https://www.workbuddy.cn/space/d/wD2waNLrojlytD1uv8ZSGB?ext2=copy_link" target="_blank" rel="noopener">标讯洞察Skill新版式样张-能力一-阶段化洞察-中车贵阳快速接头采购</a></div>
+  <p class="sub">【WorkBuddy】标讯洞察Skill新版式样张-能力一-阶段化洞察-中车贵阳快速接头采购</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-21 02:38</span></div>
+  <a class="url" href="https://www.workbuddy.cn/space/d/wD2waNLrojlytD1uv8ZSGB?ext2=copy_link" target="_blank" rel="noopener">https://www.workbuddy.cn/space/d/wD2waNLrojlytD1uv8ZSGB?ext2=copy_link</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1792550314561" data-topic="标讯趋势洞察-渲染示例-合成数据">
+  <div class="link-head"><span class="idx">27</span><a class="topic" href="https://www.workbuddy.cn/space/d/YjXJfYxh9wGmb1ZMuXdetc?ext2=copy_link" target="_blank" rel="noopener">标讯趋势洞察-渲染示例-合成数据</a></div>
+  <p class="sub">【WorkBuddy】标讯趋势洞察-渲染示例-合成数据</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-21 02:38</span></div>
+  <a class="url" href="https://www.workbuddy.cn/space/d/YjXJfYxh9wGmb1ZMuXdetc?ext2=copy_link" target="_blank" rel="noopener">https://www.workbuddy.cn/space/d/YjXJfYxh9wGmb1ZMuXdetc?ext2=copy_link</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1792462662878" data-topic="我找个会议室">
+  <div class="link-head"><span class="idx">28</span><a class="topic" href="https://room.firstshare.cn/" target="_blank" rel="noopener">我找个会议室</a></div>
+  <p class="sub">👌</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-20 02:17</span></div>
+  <a class="url" href="https://room.firstshare.cn/" target="_blank" rel="noopener">https://room.firstshare.cn/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1792437362262" data-topic="ICT行业AI工作双周汇报1020">
+  <div class="link-head"><span class="idx">29</span><a class="topic" href="https://365.kdocs.cn/l/caf5ef4HuCVX" target="_blank" rel="noopener">ICT行业AI工作双周汇报1020</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI工作双周汇报1020</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-10-19 19:16</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/caf5ef4HuCVX" target="_blank" rel="noopener">https://365.kdocs.cn/l/caf5ef4HuCVX</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1792395633605" data-topic="欧克，我调整完了">
+  <div class="link-head"><span class="idx">30</span><a class="topic" href="https://365.kdocs.cn/l/cnb2Bc1Wqpm2" target="_blank" rel="noopener">欧克，我调整完了</a></div>
+  <p class="sub">好</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-10-19 07:40</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cnb2Bc1Wqpm2" target="_blank" rel="noopener">https://365.kdocs.cn/l/cnb2Bc1Wqpm2</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1792163923041" data-topic="【上海女生的AI产品全网刷屏，估值500亿】">
+  <div class="link-head"><span class="idx">31</span><a class="topic" href="https://m.toutiao.com/is/aO2JStdBgJg/" target="_blank" rel="noopener">【上海女生的AI产品全网刷屏，估值500亿】</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-16 15:18</span></div>
+  <a class="url" href="https://m.toutiao.com/is/aO2JStdBgJg/" target="_blank" rel="noopener">https://m.toutiao.com/is/aO2JStdBgJg/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1792130423899" data-topic="标讯工作台V1016">
+  <div class="link-head"><span class="idx">32</span><a class="topic" href="https://365.kdocs.cn/l/chDH7OFUjv5Z" target="_blank" rel="noopener">标讯工作台V1016</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 标讯工作台V1016</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-10-16 06:00</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/chDH7OFUjv5Z" target="_blank" rel="noopener">https://365.kdocs.cn/l/chDH7OFUjv5Z</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="袁季骜Jeff" data-time="1791957806478" data-topic="【WorkBuddy】标讯AI工作台V1013">
+  <div class="link-head"><span class="idx">33</span><a class="topic" href="https://cloud.tencent.com/edu/learning/course-4742-84530-84546" target="_blank" rel="noopener">【WorkBuddy】标讯AI工作台V1013</a></div>
+  <p class="sub">【WorkBuddy】标讯AI工作台V1013 https://www.workbuddy.cn/space/d/t9Honef7uwzggfhDnGpsJU?ext2=copy_link</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">袁季骜Jeff</span><span class="time">2026-10-14 06:03</span></div>
+  <a class="url" href="https://cloud.tencent.com/edu/learning/course-4742-84530-84546" target="_blank" rel="noopener">https://cloud.tencent.com/edu/learning/course-4742-84530-84546</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1791950912828" data-topic="标讯AI工作台V1013">
+  <div class="link-head"><span class="idx">34</span><a class="topic" href="https://www.workbuddy.cn/space/d/t9Honef7uwzggfhDnGpsJU?ext2=copy_link" target="_blank" rel="noopener">标讯AI工作台V1013</a></div>
+  <p class="sub">【WorkBuddy】标讯AI工作台V1013</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-14 04:08</span></div>
+  <a class="url" href="https://www.workbuddy.cn/space/d/t9Honef7uwzggfhDnGpsJU?ext2=copy_link" target="_blank" rel="noopener">https://www.workbuddy.cn/space/d/t9Honef7uwzggfhDnGpsJU?ext2=copy_link</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1791516914838" data-topic="我在沟通项目需求">
+  <div class="link-head"><span class="idx">35</span><a class="topic" href="https://www.workbuddy.link/p/apVFJTYSESsuwE3R6czYCm?source=2" target="_blank" rel="noopener">我在沟通项目需求</a></div>
+  <p class="sub">好</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-10-09 03:35</span></div>
+  <a class="url" href="https://www.workbuddy.link/p/apVFJTYSESsuwE3R6czYCm?source=2" target="_blank" rel="noopener">https://www.workbuddy.link/p/apVFJTYSESsuwE3R6czYCm?source=2</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1791450074627" data-topic="我的标讯历史部分的，放这里了">
+  <div class="link-head"><span class="idx">36</span><a class="topic" href="https://365.kdocs.cn/ent/626137089/3124884721/567847969555?count=60" target="_blank" rel="noopener">我的标讯历史部分的，放这里了</a></div>
+  
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-10-08 09:01</span></div>
+  <a class="url" href="https://365.kdocs.cn/ent/626137089/3124884721/567847969555?count=60" target="_blank" rel="noopener">https://365.kdocs.cn/ent/626137089/3124884721/567847969555?count=60</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1791444343302" data-topic="AI行业中心产品原型客户申报与管理机制">
+  <div class="link-head"><span class="idx">37</span><a class="topic" href="https://365.kdocs.cn/l/csbzo8cts8FY" target="_blank" rel="noopener">AI行业中心产品原型客户申报与管理机制</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI行业中心产品原型客户申报与管理机制</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-10-08 07:25</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/csbzo8cts8FY" target="_blank" rel="noopener">https://365.kdocs.cn/l/csbzo8cts8FY</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1790574991383" data-topic="录制文件：">
+  <div class="link-head"><span class="idx">38</span><a class="topic" href="https://www.workbuddy.cn/space/d/Ibr5wmaptjFkx9DnwTMJz3?source=2" target="_blank" rel="noopener">录制文件：</a></div>
+  <p class="sub">录制: 李杰预定的会议 日期: 2026-09-28 08:57:10 录制文件：https://meeting.tencent.com/crm/N8a6eP1629</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-09-28 05:56</span></div>
+  <a class="url" href="https://www.workbuddy.cn/space/d/Ibr5wmaptjFkx9DnwTMJz3?source=2" target="_blank" rel="noopener">https://www.workbuddy.cn/space/d/Ibr5wmaptjFkx9DnwTMJz3?source=2</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1790517432346" data-topic="总体上，1.0完成都安排在10月，咱们闭门先都完成，10月，11月，12都是原型打磨期间，1～3家原型上线，就是可以正式上市的周期。">
+  <div class="link-head"><span class="idx">39</span><a class="topic" href="https://www.kdocs.cn/l/clHRDgTzYfTM" target="_blank" rel="noopener">总体上，1.0完成都安排在10月，咱们闭门先都完成，10月，11月，12都是原型打磨期间，1～3家原型上线，就是可以正式上市的周期。</a></div>
+  <p class="sub">这是最终版本链接了吧？</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-27 13:57</span></div>
+  <a class="url" href="https://www.kdocs.cn/l/clHRDgTzYfTM" target="_blank" rel="noopener">https://www.kdocs.cn/l/clHRDgTzYfTM</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1790513188748" data-topic="实施项目文档">
+  <div class="link-head"><span class="idx">40</span><a class="topic" href="https://365.kdocs.cn/folder/cfpwpUwvOxPP" target="_blank" rel="noopener">实施项目文档</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 实施项目文档</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-27 12:46</span></div>
+  <a class="url" href="https://365.kdocs.cn/folder/cfpwpUwvOxPP" target="_blank" rel="noopener">https://365.kdocs.cn/folder/cfpwpUwvOxPP</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1790482300703" data-topic="0928 ICT行业汇报 2.0">
+  <div class="link-head"><span class="idx">41</span><a class="topic" href="https://www.kdocs.cn/l/cob2jhahzn6q" target="_blank" rel="noopener">0928 ICT行业汇报 2.0</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 0928 ICT行业汇报 2.0</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-27 04:11</span></div>
+  <a class="url" href="https://www.kdocs.cn/l/cob2jhahzn6q" target="_blank" rel="noopener">https://www.kdocs.cn/l/cob2jhahzn6q</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="王梓轩Luca" data-time="1790293514690" data-topic="后，可简单配置：卡片布局，适配多色彩主题、明亮\暗黑模式、多语适配、多角色插图、移动端自适应，方便给客户演示+PWC部署纷享系统。 二.关于设计风格 设计...">
+  <div class="link-head"><span class="idx">42</span><a class="topic" href="https://github.com/Seth360/fx-workbench-ux" target="_blank" rel="noopener">后，可简单配置：卡片布局，适配多色彩主题、明亮\暗黑模式、多语适配、多角色插图、移动端自适应，方便给客户演示+PWC部署纷享系统。 二.关于设计风格 设计...</a></div>
+  <p class="sub">纷享PWC【工作台】页面UI优化&amp;设计规范控制 Skill 已发布Github，直接把地址给AI工具：“ 帮我安装 ” 直出未二次加工的生成（美化）案例： 一.这个Skill的用途： 在售前实施AI生成“工作台”Html过程中，生成的界面风格参差不齐，有些有较严重的错位、信息密度大，自己把握不好设计风格，UI丑陋等问…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">王梓轩Luca</span><span class="time">2026-09-24 23:45</span></div>
+  <a class="url" href="https://github.com/Seth360/fx-workbench-ux" target="_blank" rel="noopener">https://github.com/Seth360/fx-workbench-ux</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1790230109086" data-topic="松哥汇报整体架构">
+  <div class="link-head"><span class="idx">43</span><a class="topic" href="https://www.kdocs.cn/l/cl6WMcbPpMrV" target="_blank" rel="noopener">松哥汇报整体架构</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 松哥汇报整体架构</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-24 06:08</span></div>
+  <a class="url" href="https://www.kdocs.cn/l/cl6WMcbPpMrV" target="_blank" rel="noopener">https://www.kdocs.cn/l/cl6WMcbPpMrV</a>
+</article>
+<article class="link-card" data-cat="📝 微信文章" data-sender="吉勇安" data-time="1790039430695" data-topic="可以考虑一起去听下">
+  <div class="link-head"><span class="idx">44</span><a class="topic" href="https://mp.weixin.qq.com/s/d8YLuxyZhQ3I7gn3aSz3Wg" target="_blank" rel="noopener">可以考虑一起去听下</a></div>
+  <p class="sub">就在附近</p>
+  <div class="meta"><span class="tag">📝 微信文章</span><span class="sender">吉勇安</span><span class="time">2026-09-22 01:10</span></div>
+  <a class="url" href="https://mp.weixin.qq.com/s/d8YLuxyZhQ3I7gn3aSz3Wg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/d8YLuxyZhQ3I7gn3aSz3Wg</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1789958781859" data-topic="咱们组的虚机：  10.113.190.21">
+  <div class="link-head"><span class="idx">45</span><a class="topic" href="https://365.kdocs.cn/l/cd36FFm8Ikll" target="_blank" rel="noopener">咱们组的虚机：  10.113.190.21</a></div>
+  <p class="sub">咱们组的虚机： 10.113.190.21</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-21 02:46</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cd36FFm8Ikll" target="_blank" rel="noopener">https://365.kdocs.cn/l/cd36FFm8Ikll</a>
+</article>
+<article class="link-card" data-cat="📝 微信文章" data-sender="吉勇安" data-time="1789869886925" data-topic="旷视的子公司AI入口选了飞书，短期也没MCP的需求了[笑哭了]">
+  <div class="link-head"><span class="idx">46</span><a class="topic" href="https://mp.weixin.qq.com/s/qI4c0XkMwTXWnu-07kDGwQ" target="_blank" rel="noopener">旷视的子公司AI入口选了飞书，短期也没MCP的需求了[笑哭了]</a></div>
+  
+  <div class="meta"><span class="tag">📝 微信文章</span><span class="sender">吉勇安</span><span class="time">2026-09-20 02:04</span></div>
+  <a class="url" href="https://mp.weixin.qq.com/s/qI4c0XkMwTXWnu-07kDGwQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qI4c0XkMwTXWnu-07kDGwQ</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1789646953108" data-topic="邀你填写「ICT行业AI产品调研问卷」">
+  <div class="link-head"><span class="idx">47</span><a class="topic" href="https://f.wps.cn/g/PB9xnWsT/" target="_blank" rel="noopener">邀你填写「ICT行业AI产品调研问卷」</a></div>
+  <p class="sub">【WPS表单】邀你填写「ICT行业AI产品调研问卷」</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-09-17 12:09</span></div>
+  <a class="url" href="https://f.wps.cn/g/PB9xnWsT/" target="_blank" rel="noopener">https://f.wps.cn/g/PB9xnWsT/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1789638498883" data-topic="邀你填写「ICT行业客户AI专项调研问卷」">
+  <div class="link-head"><span class="idx">48</span><a class="topic" href="https://f.wps.cn/g/tfizfBmH/" target="_blank" rel="noopener">邀你填写「ICT行业客户AI专项调研问卷」</a></div>
+  <p class="sub">【WPS表单】邀你填写「ICT行业客户AI专项调研问卷」</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-09-17 09:48</span></div>
+  <a class="url" href="https://f.wps.cn/g/tfizfBmH/" target="_blank" rel="noopener">https://f.wps.cn/g/tfizfBmH/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1789559382003" data-topic="Knowhow 萃取体系 · 产品经理宣讲手册 v2.0">
+  <div class="link-head"><span class="idx">49</span><a class="topic" href="https://www.kdocs.cn/l/cfhXoUa4ggCd" target="_blank" rel="noopener">Knowhow 萃取体系 · 产品经理宣讲手册 v2.0</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 Knowhow 萃取体系 · 产品经理宣讲手册 v2.0</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-16 11:49</span></div>
+  <a class="url" href="https://www.kdocs.cn/l/cfhXoUa4ggCd" target="_blank" rel="noopener">https://www.kdocs.cn/l/cfhXoUa4ggCd</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1789551449080" data-topic="这就来 刚看到">
+  <div class="link-head"><span class="idx">50</span><a class="topic" href="https://docs.qq.com/sheet/DWVNuc1B2ZEN0dUx4?tab=BB08J2" target="_blank" rel="noopener">这就来 刚看到</a></div>
+  <p class="sub">海康智联</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-16 09:37</span></div>
+  <a class="url" href="https://docs.qq.com/sheet/DWVNuc1B2ZEN0dUx4?tab=BB08J2" target="_blank" rel="noopener">https://docs.qq.com/sheet/DWVNuc1B2ZEN0dUx4?tab=BB08J2</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1789528556015" data-topic="华东调研反馈">
+  <div class="link-head"><span class="idx">51</span><a class="topic" href="https://www.kdocs.cn/l/ct9iVszGJa6g" target="_blank" rel="noopener">华东调研反馈</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 华东调研反馈</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-16 03:15</span></div>
+  <a class="url" href="https://www.kdocs.cn/l/ct9iVszGJa6g" target="_blank" rel="noopener">https://www.kdocs.cn/l/ct9iVszGJa6g</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1789390595856" data-topic="但是也没新的惊喜过来。。。">
+  <div class="link-head"><span class="idx">52</span><a class="topic" href="https://365.kdocs.cn/l/cjkhi08mQD8f" target="_blank" rel="noopener">但是也没新的惊喜过来。。。</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 Know-How说明</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-14 12:56</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cjkhi08mQD8f" target="_blank" rel="noopener">https://365.kdocs.cn/l/cjkhi08mQD8f</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1789386609082" data-topic="以上事项，咱们各自推进，每几天，咱们就碰撞一次。把行业knowhow的全周期管理，先实践的跑起来。这个不能等。大家都卡住了。等不来别人的实践经验了。">
+  <div class="link-head"><span class="idx">53</span><a class="topic" href="https://365.kdocs.cn/l/coOGl84ntR6B" target="_blank" rel="noopener">以上事项，咱们各自推进，每几天，咱们就碰撞一次。把行业knowhow的全周期管理，先实践的跑起来。这个不能等。大家都卡住了。等不来别人的实践经验了。</a></div>
+  <p class="sub">增加了一个 ，用AI分析了一下ICT可能会用到的资讯，增加了一页，用来表示用到了哪些sheet，以及大概多少个条目，用途。 另外，在对应的sheet中，增加了需要用到信息和说明。明天可以一起讨论一下</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-09-14 11:50</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/coOGl84ntR6B" target="_blank" rel="noopener">https://365.kdocs.cn/l/coOGl84ntR6B</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1789384853690" data-topic="相关的数据我已经上传到企业WPS">
+  <div class="link-head"><span class="idx">54</span><a class="topic" href="https://my.feishu.cn/docx/GHjrdzJu7oKmmKxKzAocW08FnQe?from=from_copylink" target="_blank" rel="noopener">相关的数据我已经上传到企业WPS</a></div>
+  <p class="sub">导出了一个会议纪要，杰哥看看有没有补充修改的地方</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-14 11:20</span></div>
+  <a class="url" href="https://my.feishu.cn/docx/GHjrdzJu7oKmmKxKzAocW08FnQe?from=from_copylink" target="_blank" rel="noopener">https://my.feishu.cn/docx/GHjrdzJu7oKmmKxKzAocW08FnQe?from=from_copylink</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1789383662375" data-topic="AI标讯数据">
+  <div class="link-head"><span class="idx">55</span><a class="topic" href="https://365.kdocs.cn/folder/ckMlJMnYRgZc" target="_blank" rel="noopener">AI标讯数据</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI标讯数据</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-14 11:01</span></div>
+  <a class="url" href="https://365.kdocs.cn/folder/ckMlJMnYRgZc" target="_blank" rel="noopener">https://365.kdocs.cn/folder/ckMlJMnYRgZc</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1789383366653" data-topic="澄清下，我和子龙沟通确认了:杰总发的EXL表是我们可以获得数据，我们要从这个EXL表里甄选哪些是ICT行业关心的数据">
+  <div class="link-head"><span class="idx">56</span><a class="topic" href="https://365.kdocs.cn/l/ccg1yQSoqDqk" target="_blank" rel="noopener">澄清下，我和子龙沟通确认了:杰总发的EXL表是我们可以获得数据，我们要从这个EXL表里甄选哪些是ICT行业关心的数据</a></div>
+  
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-14 10:56</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ccg1yQSoqDqk" target="_blank" rel="noopener">https://365.kdocs.cn/l/ccg1yQSoqDqk</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1789373415043" data-topic="邀你填写「ICT行业情报洞察AI产品调研」">
+  <div class="link-head"><span class="idx">57</span><a class="topic" href="https://f.wps.cn/g/mzUCLGaZ/" target="_blank" rel="noopener">邀你填写「ICT行业情报洞察AI产品调研」</a></div>
+  <p class="sub">【WPS表单】邀你填写「ICT行业情报洞察AI产品调研」</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-09-14 08:10</span></div>
+  <a class="url" href="https://f.wps.cn/g/mzUCLGaZ/" target="_blank" rel="noopener">https://f.wps.cn/g/mzUCLGaZ/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1789029771242" data-topic="否则，大家直接参考knowhow，去检索。没有有效的信息">
+  <div class="link-head"><span class="idx">58</span><a class="topic" href="http://172.29.0.4:8088/knowhow.html" target="_blank" rel="noopener">否则，大家直接参考knowhow，去检索。没有有效的信息</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-09-10 08:42</span></div>
+  <a class="url" href="http://172.29.0.4:8088/knowhow.html" target="_blank" rel="noopener">http://172.29.0.4:8088/knowhow.html</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1789029506897" data-topic="你可以先把这个指令单独在ShareAgent里跑一次，让他记住这个群的id，然后在自动化的任务里把id加上，我是直接加在了agent记忆中">
+  <div class="link-head"><span class="idx">59</span><a class="topic" href="http://172.29.0.4:8088/knowhow-stage02-industry-runtime.html" target="_blank" rel="noopener">你可以先把这个指令单独在ShareAgent里跑一次，让他记住这个群的id，然后在自动化的任务里把id加上，我是直接加在了agent记忆中</a></div>
+  <p class="sub">收到</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-09-10 08:38</span></div>
+  <a class="url" href="http://172.29.0.4:8088/knowhow-stage02-industry-runtime.html" target="_blank" rel="noopener">http://172.29.0.4:8088/knowhow-stage02-industry-runtime.html</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1788941192608" data-topic="行业knowhow">
+  <div class="link-head"><span class="idx">60</span><a class="topic" href="https://365.kdocs.cn/folder/ceiDCZ9NakN1" target="_blank" rel="noopener">行业knowhow</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 行业knowhow</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-09 08:06</span></div>
+  <a class="url" href="https://365.kdocs.cn/folder/ceiDCZ9NakN1" target="_blank" rel="noopener">https://365.kdocs.cn/folder/ceiDCZ9NakN1</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1788835091534" data-topic="季骜，方便参加下不">
+  <div class="link-head"><span class="idx">61</span><a class="topic" href="https://365.kdocs.cn/l/cbwQIbv2k1iw?from=docs&amp;reqtype=kdocs&amp;startTime=1788833986760" target="_blank" rel="noopener">季骜，方便参加下不</a></div>
+  <p class="sub">好</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-09-08 02:38</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cbwQIbv2k1iw?from=docs&amp;reqtype=kdocs&amp;startTime=1788833986760" target="_blank" rel="noopener">https://365.kdocs.cn/l/cbwQIbv2k1iw?from=docs&amp;reqtype=kdocs&amp;startTime=1788833986760</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1788774655422" data-topic="SFA AI SKILL 清单">
+  <div class="link-head"><span class="idx">62</span><a class="topic" href="https://365.kdocs.cn/l/ce1v1NcJD7y6" target="_blank" rel="noopener">SFA AI SKILL 清单</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 SFA AI SKILL 清单</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-09-07 09:50</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ce1v1NcJD7y6" target="_blank" rel="noopener">https://365.kdocs.cn/l/ce1v1NcJD7y6</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1788746945587" data-topic="AI工作台可行性分析">
+  <div class="link-head"><span class="idx">63</span><a class="topic" href="https://365.kdocs.cn/l/cmYRQcRtGIhu" target="_blank" rel="noopener">AI工作台可行性分析</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI工作台可行性分析</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-09-07 02:09</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cmYRQcRtGIhu" target="_blank" rel="noopener">https://365.kdocs.cn/l/cmYRQcRtGIhu</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="吉勇安" data-time="1788515659969" data-topic="20260806日于大自然穹顶之下的深刻剖析 产研管理团队围绕 AI 时代纷享销客的产品竞争力构建、Agent 平台建设、生态布局、AI 原生组织变革四大...">
+  <div class="link-head"><span class="idx">64</span><a class="topic" href="https://365.kdocs.cn/l/cfapHU4BgFL0" target="_blank" rel="noopener">20260806日于大自然穹顶之下的深刻剖析 产研管理团队围绕 AI 时代纷享销客的产品竞争力构建、Agent 平台建设、生态布局、AI 原生组织变革四大...</a></div>
+  <p class="sub">20260806日于大自然穹顶之下的深刻剖析 产研管理团队围绕 AI 时代纷享销客的产品竞争力构建、Agent 平台建设、生态布局、AI 原生组织变革四大核心议题展开研讨，明确各模块落地路径，内容如下： 1、AI 时代产品核心竞争力构建 2、Agent 平台（Harness）建设方向 3、AI 生态合作布局 4、AI…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">吉勇安</span><span class="time">2026-09-04 09:54</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cfapHU4BgFL0" target="_blank" rel="noopener">https://365.kdocs.cn/l/cfapHU4BgFL0</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1788508861158" data-topic="智谱 AI CRM 需求沟通总结">
+  <div class="link-head"><span class="idx">65</span><a class="topic" href="https://365.kdocs.cn/l/crzYcM4l9s7g" target="_blank" rel="noopener">智谱 AI CRM 需求沟通总结</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 智谱 AI CRM 需求沟通总结</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-09-04 08:01</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/crzYcM4l9s7g" target="_blank" rel="noopener">https://365.kdocs.cn/l/crzYcM4l9s7g</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="吉勇安" data-time="1788508766869" data-topic="计划是下周二下午，咱们组织一次培训：">
+  <div class="link-head"><span class="idx">66</span><a class="topic" href="https://365.kdocs.cn/l/cmWE9irjLIxd" target="_blank" rel="noopener">计划是下周二下午，咱们组织一次培训：</a></div>
+  <p class="sub">计划是下周二下午，咱们组织一次培训： 如何在售前demo环节和实施交付环节，采用nocode的方式（基于sharedev）快速构建客户所需的自定义GUI页面（基于PWC框架）和复杂业务逻辑（APL）。 建议的参会人员，全GBC人员。 必须参加的人员： 售前岗位，实施交付岗位 请大家先填下下面的表格。会依照该名单，提前…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">吉勇安</span><span class="time">2026-09-04 07:59</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cmWE9irjLIxd" target="_blank" rel="noopener">https://365.kdocs.cn/l/cmWE9irjLIxd</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1788323260737" data-topic="AI行业中心研讨会8.28文档索引">
+  <div class="link-head"><span class="idx">67</span><a class="topic" href="https://365.kdocs.cn/l/cfk3C9Nvw3YQ" target="_blank" rel="noopener">AI行业中心研讨会8.28文档索引</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI行业中心研讨会8.28文档索引</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-09-02 04:27</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cfk3C9Nvw3YQ" target="_blank" rel="noopener">https://365.kdocs.cn/l/cfk3C9Nvw3YQ</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1787913746235" data-topic="📋 ICT AI践行者群 · 8月28日消息总结">
+  <div class="link-head"><span class="idx">68</span><a class="topic" href="https://365.kdocs.cn/l/csm1UScPTUcn" target="_blank" rel="noopener">📋 ICT AI践行者群 · 8月28日消息总结</a></div>
+  <p class="sub">📋 ICT AI践行者群 · 8月28日消息总结 ━━━━━━━━━━━━━━━━━━ 【今日核心议题】AI行业中心产品业务研讨会 &amp; ICT行业汇报准备 ━━━━━━━━━━━━━━━━━━ 一、📄 ICT行业汇报材料准备（凌晨~上午） • 李寅Erick 和 袁季骜Jeff 通宵协作，从WPS文档→HTML→PP…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-08-28 10:42</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/csm1UScPTUcn" target="_blank" rel="noopener">https://365.kdocs.cn/l/csm1UScPTUcn</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1787911886475" data-topic="AI角色工作台">
+  <div class="link-head"><span class="idx">69</span><a class="topic" href="https://365.kdocs.cn/l/cfBJ5eCrXYG6" target="_blank" rel="noopener">AI角色工作台</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI角色工作台</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-08-28 10:11</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cfBJ5eCrXYG6" target="_blank" rel="noopener">https://365.kdocs.cn/l/cfBJ5eCrXYG6</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1787889220769" data-topic="【金山文档 | WPS云文档】 AI行业中心研讨会8.28讲师文档">
+  <div class="link-head"><span class="idx">70</span><a class="topic" href="https://365.kdocs.cn/l/cpFx4naYZUYv" target="_blank" rel="noopener">【金山文档 | WPS云文档】 AI行业中心研讨会8.28讲师文档</a></div>
+  <p class="sub">好的</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-08-28 03:53</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cpFx4naYZUYv" target="_blank" rel="noopener">https://365.kdocs.cn/l/cpFx4naYZUYv</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1787846904800" data-topic="ICT-0828汇报">
+  <div class="link-head"><span class="idx">71</span><a class="topic" href="https://365.kdocs.cn/l/cr6LZQbgytjO" target="_blank" rel="noopener">ICT-0828汇报</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT-0828汇报</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-08-27 16:08</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cr6LZQbgytjO" target="_blank" rel="noopener">https://365.kdocs.cn/l/cr6LZQbgytjO</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1787827982684" data-topic="作战地图评分">
+  <div class="link-head"><span class="idx">72</span><a class="topic" href="https://365.kdocs.cn/l/ceH1Xk6o5YTy" target="_blank" rel="noopener">作战地图评分</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 作战地图评分</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-08-27 10:53</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ceH1Xk6o5YTy" target="_blank" rel="noopener">https://365.kdocs.cn/l/ceH1Xk6o5YTy</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1787809097887" data-topic="下午继续更新">
+  <div class="link-head"><span class="idx">73</span><a class="topic" href="https://ict-ai-report.pages.dev/ict-planning-expert" target="_blank" rel="noopener">下午继续更新</a></div>
+  
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-08-27 05:38</span></div>
+  <a class="url" href="https://ict-ai-report.pages.dev/ict-planning-expert" target="_blank" rel="noopener">https://ict-ai-report.pages.dev/ict-planning-expert</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1786965787404" data-topic="1.价值说明，指标提升，效率提升，企业战略制定、差异化几个维度。">
+  <div class="link-head"><span class="idx">74</span><a class="topic" href="https://365.kdocs.cn/l/cgqHUKmYKPKW" target="_blank" rel="noopener">1.价值说明，指标提升，效率提升，企业战略制定、差异化几个维度。</a></div>
+  <p class="sub">1.价值说明，指标提升，效率提升，企业战略制定、差异化几个维度。 2.客户案例，神州信息和东软 3.核心场景和skill说明，Agent建议</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-08-17 11:23</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cgqHUKmYKPKW" target="_blank" rel="noopener">https://365.kdocs.cn/l/cgqHUKmYKPKW</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1786938698876" data-topic="ICT-AI工作总结">
+  <div class="link-head"><span class="idx">75</span><a class="topic" href="https://365.kdocs.cn/l/chrLEa3SQ7Ul" target="_blank" rel="noopener">ICT-AI工作总结</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT-AI工作总结</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-08-17 03:51</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/chrLEa3SQ7Ul" target="_blank" rel="noopener">https://365.kdocs.cn/l/chrLEa3SQ7Ul</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1786936710152" data-topic="ICT行业代表客户">
+  <div class="link-head"><span class="idx">76</span><a class="topic" href="https://365.kdocs.cn/l/cctfkRATjN9p" target="_blank" rel="noopener">ICT行业代表客户</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业代表客户</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-08-17 03:18</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cctfkRATjN9p" target="_blank" rel="noopener">https://365.kdocs.cn/l/cctfkRATjN9p</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1786615196085" data-topic="上午老吉非常细致的讲了标讯的应用场景以及在神州信息的落地，和未来的建议，我做了一下总结和后面标讯产品功能的规划。">
+  <div class="link-head"><span class="idx">77</span><a class="topic" href="https://365.kdocs.cn/l/cbddmqdaSsrk" target="_blank" rel="noopener">上午老吉非常细致的讲了标讯的应用场景以及在神州信息的落地，和未来的建议，我做了一下总结和后面标讯产品功能的规划。</a></div>
+  <p class="sub">上午老吉非常细致的讲了标讯的应用场景以及在神州信息的落地，和未来的建议，我做了一下总结和后面标讯产品功能的规划。 1.老吉内容总结：【金山文档 | WPS云文档】 标讯 CRM 落地实践与 AI 应用 —— 核心业务整理 2.产品规划 - 仿PPT的HTML版本的价值和五看三定，下一步建设计划：见上面的附件。 - 详…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-08-13 09:59</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cbddmqdaSsrk" target="_blank" rel="noopener">https://365.kdocs.cn/l/cbddmqdaSsrk</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1786504234172" data-topic="网页链接">
+  <div class="link-head"><span class="idx">78</span><a class="topic" href="https://skillhub.tokenwave.cloud/explore" target="_blank" rel="noopener">网页链接</a></div>
+  <p class="sub">没有</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-08-12 03:10</span></div>
+  <a class="url" href="https://skillhub.tokenwave.cloud/explore" target="_blank" rel="noopener">https://skillhub.tokenwave.cloud/explore</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1786503271107" data-topic="按这个表达的逻辑 可以换新的token 那应该可行">
+  <div class="link-head"><span class="idx">79</span><a class="topic" href="https://365.kdocs.cn/l/cpgjLT6WWQjU" target="_blank" rel="noopener">按这个表达的逻辑 可以换新的token 那应该可行</a></div>
+  
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-08-12 02:54</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cpgjLT6WWQjU" target="_blank" rel="noopener">https://365.kdocs.cn/l/cpgjLT6WWQjU</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="袁季骜Jeff" data-time="1786502611829" data-topic="curl -fsSL   | bash     执行这个命令">
+  <div class="link-head"><span class="idx">80</span><a class="topic" href="https://raw.githubusercontent.com/wps365-open/cli/main/install.sh" target="_blank" rel="noopener">curl -fsSL   | bash     执行这个命令</a></div>
+  <p class="sub">curl -fsSL | bash 执行这个命令</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">袁季骜Jeff</span><span class="time">2026-08-12 02:43</span></div>
+  <a class="url" href="https://raw.githubusercontent.com/wps365-open/cli/main/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/wps365-open/cli/main/install.sh</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1786414375398" data-topic="袁季骜Jeff 申请编辑文件《ICT行业代表客户》">
+  <div class="link-head"><span class="idx">81</span><a class="topic" href="https://365.kdocs.cn/public/fpa?a=432567534106783744&amp;t=false&amp;i=cctfkRATjN9p&amp;p=write&amp;u=1644039024" target="_blank" rel="noopener">袁季骜Jeff 申请编辑文件《ICT行业代表客户》</a></div>
+  <p class="sub">【金山文档】袁季骜Jeff 申请编辑文件《ICT行业代表客户》</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-08-11 02:12</span></div>
+  <a class="url" href="https://365.kdocs.cn/public/fpa?a=432567534106783744&amp;t=false&amp;i=cctfkRATjN9p&amp;p=write&amp;u=1644039024" target="_blank" rel="noopener">https://365.kdocs.cn/public/fpa?a=432567534106783744&amp;t=false&amp;i=cctfkRATjN9p&amp;p=write&amp;u=1644039024</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1786342263477" data-topic="后来没做啥，就做了标讯的订阅器">
+  <div class="link-head"><span class="idx">82</span><a class="topic" href="https://365.kdocs.cn/l/ciSVdnalZ1AK" target="_blank" rel="noopener">后来没做啥，就做了标讯的订阅器</a></div>
+  <p class="sub">咱们本周安排个开元他们的如下培训和交流哈，大家周二或周四时间，哪个时段更合适？ 主题：线索 / 客户 / 商机三大教练 Agent + Know-How 业务经验资产体系介绍 核心内容： 板块一：线索转化 / 客户经营 / 商机赢单三大教练 Agent 全能力解析 1. 三类 Agent 定位、适用角色与业务场景 2…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-08-10 06:11</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ciSVdnalZ1AK" target="_blank" rel="noopener">https://365.kdocs.cn/l/ciSVdnalZ1AK</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="吉勇安" data-time="1786000357462" data-topic="奥星贝斯AI交流会议纪要">
+  <div class="link-head"><span class="idx">83</span><a class="topic" href="https://nwxbke3k0n.feishu.cn/docx/IrPedGtdKohkBfxE7YQcTwHmniA" target="_blank" rel="noopener">奥星贝斯AI交流会议纪要</a></div>
+  <p class="sub">长虹佳华当时的那个报价需求，我方接收和梳理的，只是其中一个场景</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">吉勇安</span><span class="time">2026-08-06 07:12</span></div>
+  <a class="url" href="https://nwxbke3k0n.feishu.cn/docx/IrPedGtdKohkBfxE7YQcTwHmniA" target="_blank" rel="noopener">https://nwxbke3k0n.feishu.cn/docx/IrPedGtdKohkBfxE7YQcTwHmniA</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1785771794553" data-topic="ICT行业工作汇报0803">
+  <div class="link-head"><span class="idx">84</span><a class="topic" href="https://365.kdocs.cn/l/csHvwhBhovVj" target="_blank" rel="noopener">ICT行业工作汇报0803</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业工作汇报0803</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-08-03 15:43</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/csHvwhBhovVj" target="_blank" rel="noopener">https://365.kdocs.cn/l/csHvwhBhovVj</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1785384291447" data-topic="&quot;您的2026 LOOP 全球AI生态与创新峰会专属免费邀请链接来啦，欢迎邀请朋友报名参加体验～">
+  <div class="link-head"><span class="idx">85</span><a class="topic" href="https://www.bagevent.com/event/9237486?discountCode=LOOP-lijie-TENY" target="_blank" rel="noopener">&quot;您的2026 LOOP 全球AI生态与创新峰会专属免费邀请链接来啦，欢迎邀请朋友报名参加体验～</a></div>
+  <p class="sub">&quot;您的2026 LOOP 全球AI生态与创新峰会专属免费邀请链接来啦，欢迎邀请朋友报名参加体验～ 您的邀请链接为 使用方法：点击链接 &gt;&gt; 「立即报名」&gt;&gt; 选择「参会门票（仅限学员邀请）」 +1 &gt;&gt; 填写信息 &gt;&gt; 完成报名说明：报名后，主办方会在一周内添加您的微信沟通审核，审核通过后需支付 200 元活动保证金…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-30 04:04</span></div>
+  <a class="url" href="https://www.bagevent.com/event/9237486?discountCode=LOOP-lijie-TENY" target="_blank" rel="noopener">https://www.bagevent.com/event/9237486?discountCode=LOOP-lijie-TENY</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1785321429631" data-topic="邀你填写「ICT行业AI产品规划调研问卷」">
+  <div class="link-head"><span class="idx">86</span><a class="topic" href="https://f.kdocs.cn/g/oeW0Gvi7/" target="_blank" rel="noopener">邀你填写「ICT行业AI产品规划调研问卷」</a></div>
+  <p class="sub">【WPS表单】邀你填写「ICT行业AI产品规划调研问卷」</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-29 10:37</span></div>
+  <a class="url" href="https://f.kdocs.cn/g/oeW0Gvi7/" target="_blank" rel="noopener">https://f.kdocs.cn/g/oeW0Gvi7/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1785312697813" data-topic="找个会议室。咱们快速一起核对下呗">
+  <div class="link-head"><span class="idx">87</span><a class="topic" href="https://365.kdocs.cn/l/csheopW3xKT1" target="_blank" rel="noopener">找个会议室。咱们快速一起核对下呗</a></div>
+  <p class="sub">嗯啊</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-07-29 08:11</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/csheopW3xKT1" target="_blank" rel="noopener">https://365.kdocs.cn/l/csheopW3xKT1</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1785311631861" data-topic="邀你填写「ICT行业AI产品规划调研问卷」">
+  <div class="link-head"><span class="idx">88</span><a class="topic" href="https://f.wps.cn/g/oeW0Gvi7/" target="_blank" rel="noopener">邀你填写「ICT行业AI产品规划调研问卷」</a></div>
+  <p class="sub">【WPS表单】邀你填写「ICT行业AI产品规划调研问卷」</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-07-29 07:53</span></div>
+  <a class="url" href="https://f.wps.cn/g/oeW0Gvi7/" target="_blank" rel="noopener">https://f.wps.cn/g/oeW0Gvi7/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1785311630676" data-topic="ICT行业AI产品规划V2">
+  <div class="link-head"><span class="idx">89</span><a class="topic" href="https://365.kdocs.cn/l/cmb2Bgik0xP8" target="_blank" rel="noopener">ICT行业AI产品规划V2</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI产品规划V2</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-29 07:53</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cmb2Bgik0xP8" target="_blank" rel="noopener">https://365.kdocs.cn/l/cmb2Bgik0xP8</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1785295996680" data-topic="这是调研问卷的编辑管理链接。可以手工改。也可以让AI继续改。">
+  <div class="link-head"><span class="idx">90</span><a class="topic" href="https://f.wps.cn/ksform/m/create/20260729111512880368391?entrance=share_page&amp;origin=statistics#routePromt" target="_blank" rel="noopener">这是调研问卷的编辑管理链接。可以手工改。也可以让AI继续改。</a></div>
+  <p class="sub">这是调研问卷的编辑管理链接。可以手工改。也可以让AI继续改</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-29 03:33</span></div>
+  <a class="url" href="https://f.wps.cn/ksform/m/create/20260729111512880368391?entrance=share_page&amp;origin=statistics#routePromt" target="_blank" rel="noopener">https://f.wps.cn/ksform/m/create/20260729111512880368391?entrance=share_page&amp;origin=statistics#routePromt</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1785295845447" data-topic="ICT行业AI产品规划：三大战区经营团队意见征询稿（V1.0）">
+  <div class="link-head"><span class="idx">91</span><a class="topic" href="https://365.kdocs.cn/l/corhryn63J9n" target="_blank" rel="noopener">ICT行业AI产品规划：三大战区经营团队意见征询稿（V1.0）</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI产品规划：三大战区经营团队意见征询稿（V1.0） 【WPS表单】邀你填写「ICT行业AI产品规划_三大战区经营验证问卷_V1.0_20260729」</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-29 03:30</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/corhryn63J9n" target="_blank" rel="noopener">https://365.kdocs.cn/l/corhryn63J9n</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1785294482849" data-topic="我转成在线的方式">
+  <div class="link-head"><span class="idx">92</span><a class="topic" href="https://becd90a847cb44f3bb8ed918ad6f0ee2.sh3.agentos-app.net" target="_blank" rel="noopener">我转成在线的方式</a></div>
+  <p class="sub">稍等</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-07-29 03:08</span></div>
+  <a class="url" href="https://becd90a847cb44f3bb8ed918ad6f0ee2.sh3.agentos-app.net" target="_blank" rel="noopener">https://becd90a847cb44f3bb8ed918ad6f0ee2.sh3.agentos-app.net</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1785291508720" data-topic="ICT行业从洞察到规划：">
+  <div class="link-head"><span class="idx">93</span><a class="topic" href="https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785291500208" target="_blank" rel="noopener">ICT行业从洞察到规划：</a></div>
+  <p class="sub">【WorkBuddy】 ICT行业从洞察到规划</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-07-29 02:18</span></div>
+  <a class="url" href="https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785291500208" target="_blank" rel="noopener">https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785291500208</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="袁季骜Jeff" data-time="1785235316752" data-topic="📌 ICT AI践行者群 · 2026-07-28 消息总结">
+  <div class="link-head"><span class="idx">94</span><a class="topic" href="https://help.fxiaoke.com/ee88/a823" target="_blank" rel="noopener">📌 ICT AI践行者群 · 2026-07-28 消息总结</a></div>
+  <p class="sub">📌 ICT AI践行者群 · 2026-07-28 消息总结 ━━━━━━━━━━━━━━━━━━━━━━ 【重点讨论】 1️⃣ Skill工业化生产机制讨论（11:49-11:58） 发起人：李杰lijie 议题：如何把多次培训中如何生产一款好skill的经验和知识，持续萃取为可直接进入Skill Creator的…</p>
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">袁季骜Jeff</span><span class="time">2026-07-28 10:41</span></div>
+  <a class="url" href="https://help.fxiaoke.com/ee88/a823" target="_blank" rel="noopener">https://help.fxiaoke.com/ee88/a823</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1785224231997" data-topic="这是柯学赢单的产品设计文档和成品skill">
+  <div class="link-head"><span class="idx">95</span><a class="topic" href="https://aihub.firstshare.cn/docs/multica-overview.html\" target="_blank" rel="noopener">这是柯学赢单的产品设计文档和成品skill</a></div>
+  <p class="sub">收到，杰哥</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-28 07:37</span></div>
+  <a class="url" href="https://aihub.firstshare.cn/docs/multica-overview.html\" target="_blank" rel="noopener">https://aihub.firstshare.cn/docs/multica-overview.html\</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1785158845643" data-topic="ICT行业从洞察到规划">
+  <div class="link-head"><span class="idx">96</span><a class="topic" href="https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785158841357" target="_blank" rel="noopener">ICT行业从洞察到规划</a></div>
+  <p class="sub">【WorkBuddy】 ICT行业从洞察到规划</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-07-27 13:27</span></div>
+  <a class="url" href="https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785158841357" target="_blank" rel="noopener">https://www.workbuddy.cn/app/projects?projectId=p_7774e1bfb3e047f2b26969c383ebfa1e&amp;wb_invite_copied_at=1785158841357</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李寅Erick" data-time="1785153413120" data-topic="Codex_vs_WorkBuddy_对比分析报告">
+  <div class="link-head"><span class="idx">97</span><a class="topic" href="https://workbuddy.link/p/tg51sSXAtGwmC0PBom1z4M?ext2=copy_link" target="_blank" rel="noopener">Codex_vs_WorkBuddy_对比分析报告</a></div>
+  <p class="sub">【WorkBuddy】Codex_vs_WorkBuddy_对比分析报告</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李寅Erick</span><span class="time">2026-07-27 11:56</span></div>
+  <a class="url" href="https://workbuddy.link/p/tg51sSXAtGwmC0PBom1z4M?ext2=copy_link" target="_blank" rel="noopener">https://workbuddy.link/p/tg51sSXAtGwmC0PBom1z4M?ext2=copy_link</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1785141757919" data-topic="ICT行业AI业务洞察和产品规划_经营半年度会议0724_瘦身版">
+  <div class="link-head"><span class="idx">98</span><a class="topic" href="https://365.kdocs.cn/l/ck4oJGzv7SmE" target="_blank" rel="noopener">ICT行业AI业务洞察和产品规划_经营半年度会议0724_瘦身版</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI业务洞察和产品规划_经营半年度会议0724_瘦身版</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-27 08:42</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ck4oJGzv7SmE" target="_blank" rel="noopener">https://365.kdocs.cn/l/ck4oJGzv7SmE</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784788841857" data-topic="ICT行业AI业务洞察和产品规划汇报_官方视觉美化版_v1.0_20260723">
+  <div class="link-head"><span class="idx">99</span><a class="topic" href="https://365.kdocs.cn/l/crRTfnwboaMH" target="_blank" rel="noopener">ICT行业AI业务洞察和产品规划汇报_官方视觉美化版_v1.0_20260723</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业AI业务洞察和产品规划汇报_官方视觉美化版_v1.0_20260723</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-23 06:40</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/crRTfnwboaMH" target="_blank" rel="noopener">https://365.kdocs.cn/l/crRTfnwboaMH</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784745588823" data-topic="ICT_for_AI产品_业务洞察与产品规划_五次减法_18页_v1.1_20260723">
+  <div class="link-head"><span class="idx">100</span><a class="topic" href="https://365.kdocs.cn/l/cpdU6DhJRiUm" target="_blank" rel="noopener">ICT_for_AI产品_业务洞察与产品规划_五次减法_18页_v1.1_20260723</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT_for_AI产品_业务洞察与产品规划_五次减法_18页_v1.1_20260723</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-22 18:39</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cpdU6DhJRiUm" target="_blank" rel="noopener">https://365.kdocs.cn/l/cpdU6DhJRiUm</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1784732461988" data-topic="ICT行业客户核心需求说明">
+  <div class="link-head"><span class="idx">101</span><a class="topic" href="https://365.kdocs.cn/l/crdixPEP5wVd" target="_blank" rel="noopener">ICT行业客户核心需求说明</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业客户核心需求说明 【金山文档 | WPS云文档】 ICT行业客户核心需求_结构化单页PPT_20260722 杰哥，上面一个是总结的单页文字说明，主要是对现有张太叶提供的现有项目的需求整理，推理出我们今晚确定的三个核心需求场景的重要性。另外一个是对单页文字的PPT概括。 其中…</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-07-22 15:01</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/crdixPEP5wVd" target="_blank" rel="noopener">https://365.kdocs.cn/l/crdixPEP5wVd</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1784727081250" data-topic="【金山文档 | WPS云文档】 ICT行业CRM客户管理_Agentic_AI核心诉求与优先级调研报告_20260722">
+  <div class="link-head"><span class="idx">102</span><a class="topic" href="https://365.kdocs.cn/folder/cu4alMzneibz" target="_blank" rel="noopener">【金山文档 | WPS云文档】 ICT行业CRM客户管理_Agentic_AI核心诉求与优先级调研报告_20260722</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 汇报内容</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-22 13:31</span></div>
+  <a class="url" href="https://365.kdocs.cn/folder/cu4alMzneibz" target="_blank" rel="noopener">https://365.kdocs.cn/folder/cu4alMzneibz</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784720150015" data-topic="ICT行业CRM客户管理_Agentic_AI核心诉求与优先级调研报告_20260722">
+  <div class="link-head"><span class="idx">103</span><a class="topic" href="https://365.kdocs.cn/l/cfNMlfNRwHYm" target="_blank" rel="noopener">ICT行业CRM客户管理_Agentic_AI核心诉求与优先级调研报告_20260722</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT行业CRM客户管理_Agentic_AI核心诉求与优先级调研报告_20260722</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-22 11:35</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cfNMlfNRwHYm" target="_blank" rel="noopener">https://365.kdocs.cn/l/cfNMlfNRwHYm</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1784717944860" data-topic="—— 由 AI 自动生成 ——">
+  <div class="link-head"><span class="idx">104</span><a class="topic" href="https://github.com/kdocs-app/kdocs-skill" target="_blank" rel="noopener">—— 由 AI 自动生成 ——</a></div>
+  <p class="sub">📋 【ICT AI践行者】7月22日 群聊消息总结 ━━━━━━━━━━━━━━━━━━ 📌 一、语义层与本体建设（今日核心议题） ━━━━━━━━━━━━━━━━━━ • 李杰lijie 分享子阳提供的语义层与本体背景资料（data.zip），包含两部分： ① crm-core-semantic-scenes：CR…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-22 10:59</span></div>
+  <a class="url" href="https://github.com/kdocs-app/kdocs-skill" target="_blank" rel="noopener">https://github.com/kdocs-app/kdocs-skill</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1784712841583" data-topic="ICTAI场景">
+  <div class="link-head"><span class="idx">105</span><a class="topic" href="https://365.kdocs.cn/l/cngb7dXEaU0e" target="_blank" rel="noopener">ICTAI场景</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICTAI场景</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-22 09:34</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cngb7dXEaU0e" target="_blank" rel="noopener">https://365.kdocs.cn/l/cngb7dXEaU0e</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1784712789157" data-topic="CRM Agent作战地图">
+  <div class="link-head"><span class="idx">106</span><a class="topic" href="https://365.kdocs.cn/l/caUQwwSDFO5b" target="_blank" rel="noopener">CRM Agent作战地图</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 CRM Agent作战地图</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-22 09:33</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/caUQwwSDFO5b" target="_blank" rel="noopener">https://365.kdocs.cn/l/caUQwwSDFO5b</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1784707650662" data-topic="帮助codex管理历史知识。形成知识索引， 长期记忆的">
+  <div class="link-head"><span class="idx">107</span><a class="topic" href="https://365.kdocs.cn/l/ciCJWcIWPLTR" target="_blank" rel="noopener">帮助codex管理历史知识。形成知识索引， 长期记忆的</a></div>
+  
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-07-22 08:07</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ciCJWcIWPLTR" target="_blank" rel="noopener">https://365.kdocs.cn/l/ciCJWcIWPLTR</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李寅Erick" data-time="1784703332087" data-topic="领域行业租户的AI分层">
+  <div class="link-head"><span class="idx">108</span><a class="topic" href="https://365.kdocs.cn/l/ct2IzciePfMW" target="_blank" rel="noopener">领域行业租户的AI分层</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 领域行业租户的AI分层</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李寅Erick</span><span class="time">2026-07-22 06:55</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ct2IzciePfMW" target="_blank" rel="noopener">https://365.kdocs.cn/l/ct2IzciePfMW</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784639926895" data-topic="AI行业中心半年度研讨会协作机制调研统计分析与会议议题_22份样本_v2">
+  <div class="link-head"><span class="idx">109</span><a class="topic" href="https://365.kdocs.cn/l/cltNktcMhrbw" target="_blank" rel="noopener">AI行业中心半年度研讨会协作机制调研统计分析与会议议题_22份样本_v2</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 AI行业中心半年度研讨会协作机制调研统计分析与会议议题_22份样本_v2</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-21 13:18</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cltNktcMhrbw" target="_blank" rel="noopener">https://365.kdocs.cn/l/cltNktcMhrbw</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1784624393977" data-topic="这个能力。后续才具备。目前正在研发中。">
+  <div class="link-head"><span class="idx">110</span><a class="topic" href="https://ai-industry-survey-20260721.mighty-conchoraptor.workers.dev/" target="_blank" rel="noopener">这个能力。后续才具备。目前正在研发中。</a></div>
+  <p class="sub">{{E.fs.11143}}更新了高频入口按钮</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-21 08:59</span></div>
+  <a class="url" href="https://ai-industry-survey-20260721.mighty-conchoraptor.workers.dev/" target="_blank" rel="noopener">https://ai-industry-survey-20260721.mighty-conchoraptor.workers.dev/</a>
+</article>
+<article class="link-card" data-cat="🔗 其他链接" data-sender="李杰lijie" data-time="1784623410746" data-topic="我现在通过蜂巢生成了群内容的链接地址汇总的页面">
+  <div class="link-head"><span class="idx">111</span><a class="topic" href="https://xxx.netlify.app" target="_blank" rel="noopener">我现在通过蜂巢生成了群内容的链接地址汇总的页面</a></div>
+  <p class="sub">结论：单个或少量静态 HTML 报告，最快用 Netlify Drop；如果希望长期免费、更不担心访问量，优先用 Cloudflare Pages Direct Upload。 我的推荐排序 最快上网：Netlify Drop 适合：临时分享、几份 HTML 报告、你只想拖上去马上拿链接。 做法： 把 HTML 文件…</p>
+  <div class="meta"><span class="tag">🔗 其他链接</span><span class="sender">李杰lijie</span><span class="time">2026-07-21 08:43</span></div>
+  <a class="url" href="https://xxx.netlify.app" target="_blank" rel="noopener">https://xxx.netlify.app</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="李寅Erick" data-time="1784620964655" data-topic="✅ 可以放到个人知识库！">
+  <div class="link-head"><span class="idx">112</span><a class="topic" href="https://www.fxiaoke.com/eservice/knowledge/share?fsEa=fs&amp;id=xxx" target="_blank" rel="noopener">✅ 可以放到个人知识库！</a></div>
+  <p class="sub">✅ 可以放到个人知识库！ 操作步骤： 1. 打开纷享 → 知识库 → 个人知识空间 2. 点击「上传文件」或进入个人网盘 → 个人知识空间文件夹 3. 上传 HTML 文件 4. 在知识库中打开该文件 → 点击分享 → 复制外部链接 外部链接格式类似： 这样生成的外部链接无需登录即可访问。 当前 HTML 文件路径（…</p>
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">李寅Erick</span><span class="time">2026-07-21 08:02</span></div>
+  <a class="url" href="https://www.fxiaoke.com/eservice/knowledge/share?fsEa=fs&amp;id=xxx" target="_blank" rel="noopener">https://www.fxiaoke.com/eservice/knowledge/share?fsEa=fs&amp;id=xxx</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="李寅Erick" data-time="1784620373074" data-topic="📎 ICT AI践行者 · 链接汇总（请在纷享浏览器中打开）：">
+  <div class="link-head"><span class="idx">113</span><a class="topic" href="https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_21_392c9000b3e6490f8d2b96a605fe26af" target="_blank" rel="noopener">📎 ICT AI践行者 · 链接汇总（请在纷享浏览器中打开）：</a></div>
+  <p class="sub">📎 ICT AI践行者 · 链接汇总（请在纷享浏览器中打开）</p>
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">李寅Erick</span><span class="time">2026-07-21 07:52</span></div>
+  <a class="url" href="https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_21_392c9000b3e6490f8d2b96a605fe26af" target="_blank" rel="noopener">https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_21_392c9000b3e6490f8d2b96a605fe26af</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="吉勇安" data-time="1784618043650" data-topic="北方战区AI产品竞争力反馈收集表">
+  <div class="link-head"><span class="idx">114</span><a class="topic" href="https://365.kdocs.cn/l/cbEYYPB2pKMz" target="_blank" rel="noopener">北方战区AI产品竞争力反馈收集表</a></div>
+  <p class="sub">说是要出差</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">吉勇安</span><span class="time">2026-07-21 07:14</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cbEYYPB2pKMz" target="_blank" rel="noopener">https://365.kdocs.cn/l/cbEYYPB2pKMz</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="李杰lijie" data-time="1784520025644" data-topic="ShareCRM">
+  <div class="link-head"><span class="idx">115</span><a class="topic" href="https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_17_d9130818cfd64baa963739802330b13c" target="_blank" rel="noopener">ShareCRM</a></div>
+  <p class="sub">咱们行业，和其他几个比，目前最大的阶段性短板是， 实际客户的真实需求，获取的不够。还不具备统计学上的可用性，所以咱们充分多维度获取信息，再叠加咱们哥几个的专业判断，在这个阶段先这么决策“先做什么”，先这么启动起来</p>
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">李杰lijie</span><span class="time">2026-07-20 04:00</span></div>
+  <a class="url" href="https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_17_d9130818cfd64baa963739802330b13c" target="_blank" rel="noopener">https://www.fxiaoke.com/proj/paas/artifacts?path=N_202607_17_d9130818cfd64baa963739802330b13c</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="袁季骜Jeff" data-time="1784517637192" data-topic="这样，目前所有AI的客户统计信息，基本就全了。">
+  <div class="link-head"><span class="idx">116</span><a class="topic" href="https://365.kdocs.cn/l/cmWYoUlRGGLo" target="_blank" rel="noopener">这样，目前所有AI的客户统计信息，基本就全了。</a></div>
+  <p class="sub">这样，目前所有AI的客户统计信息，基本就全了</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">袁季骜Jeff</span><span class="time">2026-07-20 03:20</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cmWYoUlRGGLo" target="_blank" rel="noopener">https://365.kdocs.cn/l/cmWYoUlRGGLo</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784517527323" data-topic="营销AI产品数据统计0714">
+  <div class="link-head"><span class="idx">117</span><a class="topic" href="https://365.kdocs.cn/l/cinx8nztyIaz" target="_blank" rel="noopener">营销AI产品数据统计0714</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 营销AI产品数据统计0714</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-20 03:18</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cinx8nztyIaz" target="_blank" rel="noopener">https://365.kdocs.cn/l/cinx8nztyIaz</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784517414395" data-topic="服务业务+知识库AI原型客户2026">
+  <div class="link-head"><span class="idx">118</span><a class="topic" href="https://365.kdocs.cn/l/ct2COBxBdy7r" target="_blank" rel="noopener">服务业务+知识库AI原型客户2026</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 服务业务+知识库AI原型客户2026</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-20 03:16</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ct2COBxBdy7r" target="_blank" rel="noopener">https://365.kdocs.cn/l/ct2COBxBdy7r</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1784448535138" data-topic="周日报简报，客户会议的也刚弄了一下">
+  <div class="link-head"><span class="idx">119</span><a class="topic" href="https://365.kdocs.cn/l/cqfxhBU1rHXc?from=docs&amp;reqtype=kdocs&amp;startTime=1784443617909&amp;createDirect=true&amp;newFile=true" target="_blank" rel="noopener">周日报简报，客户会议的也刚弄了一下</a></div>
+  
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-07-19 08:08</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cqfxhBU1rHXc?from=docs&amp;reqtype=kdocs&amp;startTime=1784443617909&amp;createDirect=true&amp;newFile=true" target="_blank" rel="noopener">https://365.kdocs.cn/l/cqfxhBU1rHXc?from=docs&amp;reqtype=kdocs&amp;startTime=1784443617909&amp;createDirect=true&amp;newFile=true</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1784448500995" data-topic="[赞]  是非常实用，基础的agent，对咱们行业来说，非常有效。">
+  <div class="link-head"><span class="idx">120</span><a class="topic" href="https://365.kdocs.cn/l/cbleuCYzg8gB?from=docs&amp;reqtype=kdocs&amp;startTime=1784447769616&amp;createDirect=true&amp;newFile=true" target="_blank" rel="noopener">[赞]  是非常实用，基础的agent，对咱们行业来说，非常有效。</a></div>
+  <p class="sub">[赞] 是非常实用，基础的agent，对咱们行业来说，非常有效</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-07-19 08:08</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cbleuCYzg8gB?from=docs&amp;reqtype=kdocs&amp;startTime=1784447769616&amp;createDirect=true&amp;newFile=true" target="_blank" rel="noopener">https://365.kdocs.cn/l/cbleuCYzg8gB?from=docs&amp;reqtype=kdocs&amp;startTime=1784447769616&amp;createDirect=true&amp;newFile=true</a>
+</article>
+<article class="link-card" data-cat="📝 微信文章" data-sender="袁季骜Jeff" data-time="1784213897828" data-topic="回头让卢毅把咱们的mcp能力尽可能充分开放，这样咱们手搓skill也可以完全在codex客户端去完成">
+  <div class="link-head"><span class="idx">121</span><a class="topic" href="https://mp.weixin.qq.com/s/TtxqzHPvZX7Ff6GGHgHp-g" target="_blank" rel="noopener">回头让卢毅把咱们的mcp能力尽可能充分开放，这样咱们手搓skill也可以完全在codex客户端去完成</a></div>
+  <p class="sub">好的</p>
+  <div class="meta"><span class="tag">📝 微信文章</span><span class="sender">袁季骜Jeff</span><span class="time">2026-07-16 14:58</span></div>
+  <a class="url" href="https://mp.weixin.qq.com/s/TtxqzHPvZX7Ff6GGHgHp-g" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/TtxqzHPvZX7Ff6GGHgHp-g</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784202821270" data-topic="CRM Agent作战地图202607_ICT场景优先级调研表">
+  <div class="link-head"><span class="idx">122</span><a class="topic" href="https://365.kdocs.cn/l/cug6bHLf4a37" target="_blank" rel="noopener">CRM Agent作战地图202607_ICT场景优先级调研表</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 CRM Agent作战地图202607_ICT场景优先级调研表</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-16 11:53</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cug6bHLf4a37" target="_blank" rel="noopener">https://365.kdocs.cn/l/cug6bHLf4a37</a>
+</article>
+<article class="link-card" data-cat="🎙 音视频" data-sender="吉勇安" data-time="1784171549972" data-topic="复制该信息，打开手机腾讯会议即可参与">
+  <div class="link-head"><span class="idx">123</span><a class="topic" href="https://tingwu.aliyun.com/folders/0" target="_blank" rel="noopener">复制该信息，打开手机腾讯会议即可参与</a></div>
+  <p class="sub">南京培训，正在将制造行业的，不知道会不会有ICT行业内容</p>
+  <div class="meta"><span class="tag">🎙 音视频</span><span class="sender">吉勇安</span><span class="time">2026-07-16 03:12</span></div>
+  <a class="url" href="https://tingwu.aliyun.com/folders/0" target="_blank" rel="noopener">https://tingwu.aliyun.com/folders/0</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784170766627" data-topic="ok-ShareAgent原型客户清单(实施专用)">
+  <div class="link-head"><span class="idx">124</span><a class="topic" href="https://365.kdocs.cn/l/ck45WndgC0Ge" target="_blank" rel="noopener">ok-ShareAgent原型客户清单(实施专用)</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ok-ShareAgent原型客户清单(实施专用)</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-16 02:59</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/ck45WndgC0Ge" target="_blank" rel="noopener">https://365.kdocs.cn/l/ck45WndgC0Ge</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="李杰lijie" data-time="1784101747942" data-topic="ICT_AI行业组2026H2脑暴会讨论稿_五看三定证据增强版_20260715">
+  <div class="link-head"><span class="idx">125</span><a class="topic" href="https://365.kdocs.cn/l/cv7rjNW09M8I" target="_blank" rel="noopener">ICT_AI行业组2026H2脑暴会讨论稿_五看三定证据增强版_20260715</a></div>
+  <p class="sub">【金山文档 | WPS云文档】 ICT_AI行业组2026H2脑暴会讨论稿_五看三定证据增强版_20260715</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">李杰lijie</span><span class="time">2026-07-15 07:49</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cv7rjNW09M8I" target="_blank" rel="noopener">https://365.kdocs.cn/l/cv7rjNW09M8I</a>
+</article>
+<article class="link-card" data-cat="🔧 内部工具" data-sender="李寅Erick" data-time="1783502421677" data-topic="收集到一个有趣的需求，来自销售运营角色：AI生成的HTML的报表啊看板，希望能创建在我们的BI中，即跟BI模块打通">
+  <div class="link-head"><span class="idx">126</span><a class="topic" href="https://fx-consumer-dashboard.pages.dev/" target="_blank" rel="noopener">收集到一个有趣的需求，来自销售运营角色：AI生成的HTML的报表啊看板，希望能创建在我们的BI中，即跟BI模块打通</a></div>
+  
+  <div class="meta"><span class="tag">🔧 内部工具</span><span class="sender">李寅Erick</span><span class="time">2026-07-08 09:20</span></div>
+  <a class="url" href="https://fx-consumer-dashboard.pages.dev/" target="_blank" rel="noopener">https://fx-consumer-dashboard.pages.dev/</a>
+</article>
+<article class="link-card" data-cat="📊 协作文档" data-sender="陈伟ChenWei" data-time="1783410878850" data-topic="这是我把原始45页word加客户需求反向整理的需求场景">
+  <div class="link-head"><span class="idx">127</span><a class="topic" href="https://365.kdocs.cn/l/cbscLLwv13JH" target="_blank" rel="noopener">这是我把原始45页word加客户需求反向整理的需求场景</a></div>
+  <p class="sub">但是实际上和标品区别比较大，对数据要求比较高，同时对客户业务系统也有要求</p>
+  <div class="meta"><span class="tag">📊 协作文档</span><span class="sender">陈伟ChenWei</span><span class="time">2026-07-07 07:54</span></div>
+  <a class="url" href="https://365.kdocs.cn/l/cbscLLwv13JH" target="_blank" rel="noopener">https://365.kdocs.cn/l/cbscLLwv13JH</a>
+</article></div></main>
+<div class="empty" id="empty">没有匹配的链接，试试其他关键词</div>
+<footer>由 im-link-collector 技能自动生成 · 支持按名称模糊搜索与排序切换（时间倒序 / 主题相似）</footer>
+</div>
 <script>
-const DATA = [{"i": 0, "topic": "2026.11.11 星期三 · 第 22 期 9 条精选 · 4 个板块 · 最高 8 分 本期头条 AgentC... · AgentC...", "subtitle": "2026.11.11 星期三 · 第 22 期 9 条精选 · 4 个板块 · 最高 8 分 本期头条 AgentCore 依赖监控方案 AWS 宣布 Amazon Bedrock AgentCore Web Search API 已可用，并展示如何结合 LangGraph 构建每日依赖监控智能体，为安全团队检查 np…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/11/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-11 00:26", "ts": 1794356811854, "internal": false}, {"i": 1, "topic": "2026.11.10 星期二 · 第 21 期 5 条精选 · 3 个板块 · 最高 8 分 本期头条 Kuken ... · Kuken ...", "subtitle": "2026.11.10 星期二 · 第 21 期 5 条精选 · 3 个板块 · 最高 8 分 本期头条 Kuken 用 AI 检索 70 年图纸 Kuken Industries 通过 OpenAI API 构建冷却塔工程图纸检索能力，覆盖其 70 年的历史图纸资料。 OpenAI 披露，工程师查找维修所需图纸的时间已…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/10/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-10 00:26", "ts": 1794270363497, "internal": false}, {"i": 2, "topic": "2026.11.09 星期一 · 第 20 期 1 条精选 · 1 个板块 · 最高 7 分 本期头条 Agents... · Agents...", "subtitle": "2026.11.09 星期一 · 第 20 期 1 条精选 · 1 个板块 · 最高 7 分 本期头条 Agents SDK alpha.7 更新 OpenAI 发布 Agents SDK v0.24.0-alpha.7 预发布版本，新增由应用自有存储承载的持久化根会话，提供 SessionStore、SQLiteSe…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/09/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-09 00:23", "ts": 1794183822062, "internal": false}, {"i": 3, "topic": "2026.11.08 星期日 · 第 19 期 1 条精选 · 1 个板块 · 最高 7 分 本期头条 重新思考工具... · 重新思考工具...", "subtitle": "2026.11.08 星期日 · 第 19 期 1 条精选 · 1 个板块 · 最高 7 分 本期头条 重新思考工具调用训练数据 机器之心文章围绕 Tool-Calling Agent 的训练数据合成展开，讨论将训练流程从预先设计任务的“先出题”转向智能体自主探索的“先探索”。 这类智能体需要理解用户意图、调用外部 A…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/08/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-08 00:10", "ts": 1794096618007, "internal": false}, {"i": 4, "topic": "作者 自己提供了免费的线上版本，不涉及版权问题哈。鼓励大家多阅读和探讨。", "subtitle": "作者 自己提供了免费的线上版本，不涉及版权问题哈。鼓励大家多阅读和探讨", "url": "https://fde4.ai/book/", "domain": "fde4.ai", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-07 08:35", "ts": 1794040543868, "internal": false}, {"i": 5, "topic": "2026.11.07 星期六 · 第 18 期 12 条精选 · 6 个板块 · 最高 8 分 本期头条 AWS 与... · AWS 与...", "subtitle": "2026.11.07 星期六 · 第 18 期 12 条精选 · 6 个板块 · 最高 8 分 本期头条 AWS 与 Okta 治理智能体访问 AWS 在《Part 1》博客中介绍了 Okta Cross App Access（XAA）与 Amazon Bedrock AgentCore 的集成：Okta 负责注册智能…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/07/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-07 00:16", "ts": 1794010576737, "internal": false}, {"i": 6, "topic": "magpie下载：", "subtitle": "magpie下载", "url": "https://usemagpie.ai/docs/zh/start", "domain": "usemagpie.ai", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-06 02:33", "ts": 1793932431020, "internal": false}, {"i": 7, "topic": "2026.11.06 星期五 · 第 17 期 12 条精选 · 6 个板块 · 最高 8 分 本期头条 OpenS... · OpenS...", "subtitle": "2026.11.06 星期五 · 第 17 期 12 条精选 · 6 个板块 · 最高 8 分 本期头条 OpenSharing 扩展共享边界 Databricks 称，Delta Sharing 已演进为 Linux Foundation 旗下的厂商中立开放协议 OpenSharing，并于 2026 年 6 月与…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/06/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-06 00:17", "ts": 1793924244874, "internal": false}, {"i": 8, "topic": "标讯工作台三页_校对美化版", "subtitle": "【WorkBuddy】标讯工作台三页_校对美化版", "url": "https://www.workbuddy.cn/space/d/0PHu5ratq5kQz9mPisB3Ca?shareId=8404978f-c7b7-434a-bd31-3e771d935fd0&ext2=copy_link", "domain": "www.workbuddy.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-05 12:46", "ts": 1793882795884, "internal": false}, {"i": 9, "topic": "。结合本条仅披露的交易标题，Copado 拟将这类生产环境安全可见性纳入其 AI 治理方向，但收购条款、整合方式和具体上线能力仍无法从现有材料确认。 编辑...", "subtitle": "2026.11.05 星期四 · 第 16 期 12 条精选 · 6 个板块 · 最高 8 分 本期头条 Agentforce Coworker 扩展能力 Salesforce 宣布扩展 Agentforce Coworker，称其使用量在三个月内增长 21 倍，用户已超过 18.5 万；采用企业包括 The Adec…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/05/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-05 00:16", "ts": 1793837782867, "internal": false}, {"i": 10, "topic": "2026.11.04 星期三 · 第 15 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Slack... · Slack...", "subtitle": "2026.11.04 星期三 · 第 15 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Slack 披露智能体调用规模 Salesforce 披露，智能体可通过 MCP 等开放标准，利用 Slack 中涉及 GitHub、Salesforce、Jira 等平台的业务上下文并实时执行操作；据其统计，Sl…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/04/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-04 00:19", "ts": 1793751549370, "internal": false}, {"i": 11, "topic": "标讯AI产品解决方案V2.0", "subtitle": "【金山文档 | WPS云文档】 标讯AI产品解决方案V2.0", "url": "https://365.kdocs.cn/l/ctW5pQfCJ3Sd", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-11-03 02:23", "ts": 1793672633817, "internal": false}, {"i": 12, "topic": "2026.11.03 星期二 · 第 14 期 12 条精选 · 5 个板块 · 最高 9 分 本期头条 Sales... · Sales...", "subtitle": "2026.11.03 星期二 · 第 14 期 12 条精选 · 5 个板块 · 最高 9 分 本期头条 Salesforce 拟收购 Cresta Salesforce 已与 Cresta 签署最终收购协议，拟将其语音智能体、实时人工坐席辅导、全量交互分析，以及语音智能体与人工坐席共用的质量改进能力纳入客户服务布局。…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/03/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-03 01:34", "ts": 1793669645004, "internal": false}, {"i": 13, "topic": "ICT行业AI工作双周汇报1102", "subtitle": "【金山文档 | WPS云文档】 ICT行业AI工作双周汇报1102", "url": "https://365.kdocs.cn/l/ce3PIFoKYtIW", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-11-02 12:28", "ts": 1793622538586, "internal": false}, {"i": 14, "topic": "在杰哥，我一会下去", "subtitle": "在杰哥，我一会下去", "url": "http://10.113.190.21:8787/", "domain": "10.113.190.21:8787", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-02 08:06", "ts": 1793606769545, "internal": true}, {"i": 15, "topic": "2026.11.01 星期日 · 第 12 期 9 条精选 · 5 个板块 · 最高 8 分 本期头条 谷歌发布 T... · 谷歌发布 T...", "subtitle": "2026.11.01 星期日 · 第 12 期 9 条精选 · 5 个板块 · 最高 8 分 本期头条 谷歌发布 T2J-Bench 谷歌团队发布 T2J-Bench，以 63 个整仓任务评估 Coding Agent 将 PyTorch 项目迁移至 JAX 后，训练与推理行为能否保持一致。 任务覆盖权重转换、模型计算…", "url": "https://touchstoness.github.io/horizon-daily/2026/11/01/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-11-01 00:09", "ts": 1793491792393, "internal": false}, {"i": 16, "topic": "2026.10.31 星期六 · 第 11 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Agent... · Agent...", "subtitle": "2026.10.31 星期六 · 第 11 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Agent Compute Engine 亮相 Google Cloud 在 10 月 AI 基础设施更新中发布面向自主智能体的 Agent Compute Engine，采用硬件隔离的 microVM 沙箱，并配…", "url": "https://touchstoness.github.io/horizon-daily/2026/10/31/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-31 00:45", "ts": 1793407504220, "internal": false}, {"i": 17, "topic": "2026.10.30 星期五 · 第 10 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Epsil... · Epsil...", "subtitle": "2026.10.30 星期五 · 第 10 期 12 条精选 · 5 个板块 · 最高 8 分 本期头条 Epsilon 用 Nova Act 扩展 UI 测试 AWS 披露，Epsilon 已将 Amazon Nova Act 与 Amazon Bedrock AgentCore Browser 集成到内部共享 Ag…", "url": "https://touchstoness.github.io/horizon-daily/2026/10/30/summary-zh.html", "domain": "touchstoness.github.io", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-30 07:48", "ts": 1793346535326, "internal": false}, {"i": 18, "topic": "【好课推荐】《【2026】销售云 AI 产品宣讲及演示》", "subtitle": "【好课推荐】《【2026】销售云 AI 产品宣讲及演示》", "url": "https://www.fxiaoke.com/fsh5/partner-train/release/index.html?embed=0&external=1&_callNative=1&fromapp=1&courseID=180483", "domain": "www.fxiaoke.com", "sender": "陈伟ChenWei", "cat": "🔧 内部工具", "catClass": "cat-tool", "time": "2026-10-29 06:29", "ts": 1793255344670, "internal": false}, {"i": 19, "topic": "在workbuddy通过企查查MCP接口获取的【企查查】公司的咨询报告生成了HTML报告", "subtitle": "在workbuddy通过企查查MCP接口获取的【企查查】公司的咨询报告生成了HTML报告", "url": "https://workbuddy.link/p/VC5uckh4sjoR9504pYHtXl?source=2", "domain": "workbuddy.link", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-28 09:42", "ts": 1793180562140, "internal": false}, {"i": 20, "topic": "行业本体建设沟通会", "subtitle": "【金山文档 | WPS云文档】 行业本体建设沟通会", "url": "https://365.kdocs.cn/l/cq8K7q6vxz9M", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-28 04:03", "ts": 1793160234507, "internal": false}, {"i": 21, "topic": "目前已经有7个工作台，其中复杂的是4个，已经都做了大量的版本迭代，以及后面要做协同开发，代码库管理的问题会更凸显", "subtitle": "目前已经有7个工作台，其中复杂的是4个，已经都做了大量的版本迭代，以及后面要做协同开发，代码库管理的问题会更凸显", "url": "https://www.fxiaoke.com/XV/UI/Home?noheader=1&notopnav=0#objdetail/ProcurementInfoObj/6ad1d6fc555a8d000841b1ce", "domain": "www.fxiaoke.com", "sender": "袁季骜Jeff", "cat": "🔧 内部工具", "catClass": "cat-tool", "time": "2026-10-27 11:35", "ts": 1793100900142, "internal": false}, {"i": 22, "topic": "保障标讯数据的唯一性", "subtitle": "他们自己做了一个标讯平台，集成了千里马，剑鱼，知了的数据", "url": "https://github.com/yetone/magpie/blob/main/README.zh-CN.md", "domain": "github.com", "sender": "李杰lijie", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-27 04:01", "ts": 1793073676997, "internal": false}, {"i": 23, "topic": "标讯情报洞察", "subtitle": "【金山文档 | WPS云文档】 标讯情报洞察", "url": "https://365.kdocs.cn/l/cftk3N0AFGnP", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-27 02:00", "ts": 1793066453068, "internal": false}, {"i": 24, "topic": "收到 非常感谢", "subtitle": "收到 非常感谢", "url": "https://aihub.firstshare.cn/", "domain": "aihub.firstshare.cn", "sender": "陈伟ChenWei", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-21 12:05", "ts": 1792584334701, "internal": false}, {"i": 25, "topic": "标讯洞察Skill新版式样张-能力一-阶段化洞察-中车贵阳快速接头采购", "subtitle": "【WorkBuddy】标讯洞察Skill新版式样张-能力一-阶段化洞察-中车贵阳快速接头采购", "url": "https://www.workbuddy.cn/space/d/wD2waNLrojlytD1uv8ZSGB?ext2=copy_link", "domain": "www.workbuddy.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-21 02:38", "ts": 1792550334339, "internal": false}, {"i": 26, "topic": "标讯趋势洞察-渲染示例-合成数据", "subtitle": "【WorkBuddy】标讯趋势洞察-渲染示例-合成数据", "url": "https://www.workbuddy.cn/space/d/YjXJfYxh9wGmb1ZMuXdetc?ext2=copy_link", "domain": "www.workbuddy.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-21 02:38", "ts": 1792550314561, "internal": false}, {"i": 27, "topic": "我找个会议室", "subtitle": "👌", "url": "https://room.firstshare.cn/", "domain": "room.firstshare.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-20 02:17", "ts": 1792462662878, "internal": false}, {"i": 28, "topic": "ICT行业AI工作双周汇报1020", "subtitle": "【金山文档 | WPS云文档】 ICT行业AI工作双周汇报1020", "url": "https://365.kdocs.cn/l/caf5ef4HuCVX", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-19 19:16", "ts": 1792437362262, "internal": false}, {"i": 29, "topic": "欧克，我调整完了", "subtitle": "好", "url": "https://365.kdocs.cn/l/cnb2Bc1Wqpm2", "domain": "365.kdocs.cn", "sender": "袁季骜Jeff", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-19 07:40", "ts": 1792395633605, "internal": false}, {"i": 30, "topic": "【上海女生的AI产品全网刷屏，估值500亿】", "subtitle": "【上海女生的AI产品全网刷屏，估值500亿】", "url": "https://m.toutiao.com/is/aO2JStdBgJg/", "domain": "m.toutiao.com", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-16 15:18", "ts": 1792163923041, "internal": false}, {"i": 31, "topic": "标讯工作台V1016", "subtitle": "【金山文档 | WPS云文档】 标讯工作台V1016", "url": "https://365.kdocs.cn/l/chDH7OFUjv5Z", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-16 06:00", "ts": 1792130423899, "internal": false}, {"i": 32, "topic": "【WorkBuddy】标讯AI工作台V1013", "subtitle": "【WorkBuddy】标讯AI工作台V1013", "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84546", "domain": "cloud.tencent.com", "sender": "袁季骜Jeff", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-14 06:03", "ts": 1791957806478, "internal": false}, {"i": 33, "topic": "标讯AI工作台V1013", "subtitle": "【WorkBuddy】标讯AI工作台V1013", "url": "https://www.workbuddy.cn/space/d/t9Honef7uwzggfhDnGpsJU?ext2=copy_link", "domain": "www.workbuddy.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-14 04:08", "ts": 1791950912828, "internal": false}, {"i": 34, "topic": "我在沟通项目需求", "subtitle": "好", "url": "https://www.workbuddy.link/p/apVFJTYSESsuwE3R6czYCm?source=2", "domain": "www.workbuddy.link", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-10-09 03:35", "ts": 1791516914838, "internal": false}, {"i": 35, "topic": "我的标讯历史部分的，放这里了", "subtitle": "我的标讯历史部分的，放这里了", "url": "https://365.kdocs.cn/ent/626137089/3124884721/567847969555?count=60", "domain": "365.kdocs.cn", "sender": "陈伟ChenWei", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-08 09:01", "ts": 1791450074627, "internal": false}, {"i": 36, "topic": "AI行业中心产品原型客户申报与管理机制", "subtitle": "【金山文档 | WPS云文档】 AI行业中心产品原型客户申报与管理机制", "url": "https://365.kdocs.cn/l/csbzo8cts8FY", "domain": "365.kdocs.cn", "sender": "李杰lijie", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-10-08 07:25", "ts": 1791444343302, "internal": false}, {"i": 37, "topic": "录制文件：", "subtitle": "录制: 李杰预定的会议 日期: 2026-09-28 08:57:10 录制文件：", "url": "https://www.workbuddy.cn/space/d/Ibr5wmaptjFkx9DnwTMJz3?source=2", "domain": "www.workbuddy.cn", "sender": "李寅Erick", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-09-28 05:56", "ts": 1790574991383, "internal": false}, {"i": 38, "topic": "总体上，1.0完成都安排在10月，咱们闭门先都完成，10月，11月，12都是原型打磨期间，1～3家原型上线，就是可以正式上市的周期。", "subtitle": "这是最终版本链接了吧？", "url": "https://www.kdocs.cn/l/clHRDgTzYfTM", "domain": "www.kdocs.cn", "sender": "李杰lijie", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-09-27 13:57", "ts": 1790517432346, "internal": false}, {"i": 39, "topic": "实施项目文档", "subtitle": "【金山文档 | WPS云文档】 实施项目文档", "url": "https://365.kdocs.cn/folder/cfpwpUwvOxPP", "domain": "365.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-09-27 12:46", "ts": 1790513188748, "internal": false}, {"i": 40, "topic": "0928 ICT行业汇报 2.0", "subtitle": "【金山文档 | WPS云文档】 0928 ICT行业汇报 2.0", "url": "https://www.kdocs.cn/l/cob2jhahzn6q", "domain": "www.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-09-27 04:11", "ts": 1790482300703, "internal": false}, {"i": 41, "topic": "后，可简单配置：卡片布局，适配多色彩主题、明亮\\暗黑模式、多语适配、多角色插图、移动端自适应，方便给客户演示+PWC部署纷享系统。 二.关于设计风格 设计...", "subtitle": "纷享PWC【工作台】页面UI优化&设计规范控制 Skill 已发布Github，直接把地址给AI工具：“ 帮我安装 ” 直出未二次加工的生成（美化）案例： 一.这个Skill的用途： 在售前实施AI生成“工作台”Html过程中，生成的界面风格参差不齐，有些有较严重的错位、信息密度大，自己把握不好设计风格，UI丑陋等问题…", "url": "https://github.com/Seth360/fx-workbench-ux", "domain": "github.com", "sender": "王梓轩Luca", "cat": "🔗 其他链接", "catClass": "cat-other", "time": "2026-09-24 23:45", "ts": 1790293514690, "internal": false}, {"i": 42, "topic": "松哥汇报整体架构", "subtitle": "【金山文档 | WPS云文档】 松哥汇报整体架构", "url": "https://www.kdocs.cn/l/cl6WMcbPpMrV", "domain": "www.kdocs.cn", "sender": "李寅Erick", "cat": "📊 协作文档", "catClass": "cat-doc", "time": "2026-09-24 06:08", "ts": 1790230109086, "internal": false}];
-const listEl = document.getElementById('list');
-const countEl = document.getElementById('countLine');
-const qEl = document.getElementById('q');
-const sortEl = document.getElementById('sort');
-const chipsEl = document.getElementById('chips');
-let curSender = '';
-let curSort = 'time-desc';
+const q=document.getElementById('q'),catSel=document.getElementById('cat'),empty=document.getElementById('empty');
+const listBox=document.querySelector('#list .link-list');
+const cards=Array.from(document.querySelectorAll('.link-card'));
+const navItems=Array.from(document.querySelectorAll('.people-nav-item'));
+const sortTime=document.getElementById('sort-time'),sortSim=document.getElementById('sort-sim');
+let currentSort='time';
+let currentSender='all';
 
-function esc(s) {
-  return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
-    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function similarity(a,b){
+  const ta=new Set((a.dataset.topic||'').toLowerCase().split(/[\s\-_.:：|/]+/).filter(x=>x.length>=2));
+  const tb=new Set((b.dataset.topic||'').toLowerCase().split(/[\s\-_.:：|/]+/).filter(x=>x.length>=2));
+  let inter=0; ta.forEach(x=>{if(tb.has(x))inter++;});
+  const union=ta.size+tb.size-inter;
+  return union? inter/union : 0;
 }
-
-function apply() {
-  const q = qEl.value.trim().toLowerCase();
-  let rows = DATA.filter(r => {
-    if (curSender && r.sender !== curSender) return false;
-    if (!q) return true;
-    return (r.topic + ' ' + r.subtitle + ' ' + r.url + ' ' + r.sender + ' ' + r.domain)
-      .toLowerCase().includes(q);
+function sortBySimilarity(arr){
+  const byCat={};
+  arr.forEach(c=>{const k=c.dataset.cat||'其他'; (byCat[k]=byCat[k]||[]).push(c);});
+  const catGroups=Object.entries(byCat).sort((a,b)=>b[1].length-a[1].length);
+  const out=[];
+  catGroups.forEach(([cat,items])=>{
+    const remaining=items.slice();
+    const sorted=[remaining.shift()];
+    while(remaining.length){
+      const last=sorted[sorted.length-1];
+      let bestIdx=0,bestSim=-1;
+      remaining.forEach((c,i)=>{const s=similarity(last,c); if(s>bestSim){bestSim=s;bestIdx=i;}});
+      sorted.push(remaining.splice(bestIdx,1)[0]);
+    }
+    out.push(...sorted);
   });
-
-  if (curSort === 'time-asc') rows = rows.slice().sort((a,b) => a.ts - b.ts);
-  else if (curSort === 'sender') rows = rows.slice().sort((a,b) =>
-    a.sender.localeCompare(b.sender,'zh') || (b.ts - a.ts));
-  else rows = rows.slice().sort((a,b) => b.ts - a.ts);
-
-  countEl.textContent = '当前显示 ' + rows.length + ' / ' + DATA.length + ' 条';
-
-  if (!rows.length) {
-    listEl.innerHTML = '<div class="empty">没有匹配的链接，试试其他关键词或发布人</div>';
-    return;
-  }
-
-  listEl.innerHTML = rows.map((r, idx) => `
-    <div class="card">
-      <div class="card-top">
-        <h3><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.topic)}</a></h3>
-      </div>
-      ${r.subtitle ? `<p class="sub">${esc(r.subtitle)}</p>` : ''}
-      <div class="url"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a></div>
-      <div class="foot">
-        <span class="badge ${r.catClass}">${esc(r.cat)}</span>
-        <span class="sender-tag">👤 ${esc(r.sender)}</span>
-        <span>🕒 ${esc(r.time)}</span>
-        <span>🌐 ${esc(r.domain)}</span>
-        ${r.internal ? '<span class="warn">⚠ 内网地址，外网不可访问</span>' : ''}
-      </div>
-    </div>
-  `).join('');
+  return out;
 }
 
-qEl.addEventListener('input', apply);
-sortEl.addEventListener('change', e => { curSort = e.target.value; apply(); });
-chipsEl.addEventListener('click', e => {
-  const btn = e.target.closest('.chip');
-  if (!btn) return;
-  chipsEl.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  curSender = btn.dataset.sender || '';
-  apply();
-});
+function apply(){
+  const kw=q.value.trim().toLowerCase();
+  const c=catSel.value;
+  let visible=0;
+  cards.forEach(card=>{
+    const text=(card.innerText||'').toLowerCase();
+    const okKw=!kw||text.includes(kw);
+    const okCat=!c||card.dataset.cat===c;
+    const okSender=currentSender==='all'||card.dataset.sender===currentSender;
+    const show=okKw&&okCat&&okSender;
+    card.style.display=show?'':'none';
+    if(show)visible++;
+  });
+  empty.style.display=visible?'none':'block';
+}
 
-apply();
+function reorder(){
+  const visible=cards.filter(c=>c.style.display!=='none');
+  let ordered;
+  if(currentSort==='time'){
+    ordered=visible.slice().sort((a,b)=>(parseInt(b.dataset.time||'0'))-(parseInt(a.dataset.time||'0')));
+  }else{
+    ordered=sortBySimilarity(visible);
+  }
+  ordered.forEach((c,i)=>{
+    const idx=c.querySelector('.idx'); if(idx)idx.textContent=i+1;
+    listBox.appendChild(c);
+  });
+}
+
+function setSort(mode){
+  currentSort=mode;
+  sortTime.classList.toggle('active',mode==='time');
+  sortSim.classList.toggle('active',mode==='sim');
+  reorder();
+}
+
+q.addEventListener('input',()=>{apply();reorder();});
+catSel.addEventListener('change',()=>{apply();reorder();});
+sortTime.addEventListener('click',()=>setSort('time'));
+sortSim.addEventListener('click',()=>setSort('sim'));
+document.getElementById('reset').addEventListener('click',()=>{q.value='';catSel.value='';currentSender='all';navItems.forEach(n=>n.classList.toggle('active',n.dataset.target==='all'));apply();setSort('time');});
+navItems.forEach(item=>item.addEventListener('click',()=>{
+  currentSender=item.dataset.target;
+  navItems.forEach(n=>n.classList.toggle('active',n===item));
+  apply();reorder();
+  document.querySelector('.toolbar').scrollIntoView({behavior:'smooth',block:'start'});
+}));
+apply();reorder();
 </script>
 </body>
 </html>
